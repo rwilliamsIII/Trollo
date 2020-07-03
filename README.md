@@ -11,3 +11,6 @@ This app will allow users manage working in a group remotely more easily.  A mem
 
 # Technology
 HTML, ES6, Node.JS, Github, Heroku, React
+
+# Heroku Link
+<!-- [Heroku Live App](https://intense-headland-07866.herokuapp.com/) -->
