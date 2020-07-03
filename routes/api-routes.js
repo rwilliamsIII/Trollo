@@ -1,16 +1,16 @@
 // Requiring our Todo model
-var db = require("../models");
+const router = require("express").Router();
+const User = require("../models/user");
 
 // Routes
-// =============================================================
-module.exports = function(app) {
-
-  // GET route for getting all of the posts
-  app.get("/api/users/", function(req, res) {
-    db.User.findAll({})
-      .then(function(dbUser) {
-        res.json(dbUser);
-        console.log(dbUser);
-      });
+router.get("/users", (req, res) => {
+    // Use a regular expression to search titles for req.query.q
+    // using case insensitive match. https://docs.mongodb.com/manual/reference/operator/query/regex/index.html
+    User.find({})
+       .sort({ date: -1 })
+      .then(users => res.json(users))
+      .catch(err => res.status(422).json(err));
+      console.log(users);
   });
-};
+  
+  module.exports = router;
