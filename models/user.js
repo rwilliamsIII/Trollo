@@ -5,24 +5,14 @@ module.exports = function (sequelize, Sequelize) {
             primaryKey: true,
             type: Sequelize.INTEGER
         },
-        firstName: {
+        user_name: {
             type: Sequelize.STRING,
             notEmpty: true
         },
-        lastName: {
+        user_pass: {
             type: Sequelize.STRING,
             notEmpty: true
         },
-        email: {
-            type: Sequelize.STRING,
-            validate: {
-                isEmail: true
-            }
-        },
-        password: {
-            type: Sequelize.STRING,
-            allowNull: false
-        }
     });
     return User;
 }

@@ -2,7 +2,8 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 5000;
-const mysql = require("mysql")
+const mysql = require("mysql");
+const user = require("./models/user");
 
 
 const connection = mysql.createConnection({
@@ -31,9 +32,14 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/public/index.html"));
+// });
+
+require("./routes/api-routes.js")(app);
+// require("./routes/html-routes.js")(app);
+
+
 
 
 app.listen(PORT, function(){
