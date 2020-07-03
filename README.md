@@ -21,3 +21,13 @@ To use this app, you can...
 # Application Demo
 
 <!-- This space reserved for gif of working app.  <img src="Assets\gifs\teamprofilegendemofinal.gif"> -->
+
+# Contact
+
+[Robert Williams](https://rwilliamsiii.github.io/Portfolio/) |
+
+[Kristin Centers](https://kristincenters.github.io/) |
+
+[Iean Hennig](https://iean-hennig.github.io/myPortfolio/) |
+
+[Noe Monsivais](https://nmonsivais.github.io/) |
