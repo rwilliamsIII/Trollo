@@ -8,3 +8,6 @@ This app will allow users manage working in a group remotely more easily.  A mem
 
 # Contributers
 @rwilliamsIII @kristincenters @iean-hennig @nmonsivais
+
+# Technology
+HTML, ES6, Node.JS, Github, Heroku, React
