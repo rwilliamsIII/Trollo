@@ -1,18 +1,17 @@
-module.exports = function (sequelize, Sequelize) {
-    var User = sequelize.define('user', {
-        id: {
-            autoIncrement: true,
-            primaryKey: true,
-            type: Sequelize.INTEGER
-        },
-        user_name: {
-            type: Sequelize.STRING,
-            notEmpty: true
-        },
-        user_pass: {
-            type: Sequelize.STRING,
-            notEmpty: true
-        },
-    });
-    return User;
-}
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+const userSchema = new mongoose.Schema({
+    user_name: {
+        type: String,
+        default: ""
+    },
+    user_pass: {
+        type: String,
+        default: ""
+    }
+});
+
+const User = mongoose.model("User", userSchema);
+
+module.exports = User;
