@@ -14,3 +14,6 @@ HTML, ES6, Node.JS, Github, Heroku, React
 
 # Heroku Link
 <!-- [Heroku Live App](https://intense-headland-07866.herokuapp.com/) -->
+
+# Usage Instructions
+To use this app, you can...
