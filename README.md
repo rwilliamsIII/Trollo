@@ -17,3 +17,7 @@ HTML, ES6, Node.JS, Github, Heroku, React
 
 # Usage Instructions
 To use this app, you can...
+
+# Application Demo
+
+<!-- This space reserved for gif of working app.  <img src="Assets\gifs\teamprofilegendemofinal.gif"> -->
