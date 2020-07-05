@@ -12,6 +12,8 @@
 		"if-env": "^1.0.4",
 		"jsonwebtoken": "^8.5.1",
 		"mongoose": "^5.9.21",
+		"passport": "^0.4.1",
+		"passport-jwt": "^4.0.0",
 		"path": "^0.12.7",
 		"request": "^2.88.2"
 	},

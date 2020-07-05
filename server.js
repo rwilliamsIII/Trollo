@@ -1,11 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const db = require('./models');
 const mongoose = require('mongoose');
-
-app.get('/', (req, res) => res.send('API Running'));
 
 // Init Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -32,7 +31,7 @@ if (process.env.NODE_ENV === 'production') {
 	});
 }
 // Define Routes
-app.use('/users', require('./routes/users'));
+require('./routes/api/user')(app);
 // require("./routes/html-routes.js")(app);
 
 app.listen(PORT, function () {
