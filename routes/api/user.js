@@ -3,11 +3,11 @@ module.exports = function (app) {
 	const jwt = require('jsonwebtoken');
 	const passport = require('passport');
 	const keys = require('../../config/keys');
-	const db = require('../../models/User');
+	const User = require('../../models/User');
 
 	app.get(
 		'/api/user/test/',
-		passport.authenticate('jwt', { session: false }),
+		// passport.authenticate('jwt', { session: false }),
 		(req, res) => {
 			res.json({
 				success: true,
@@ -16,12 +16,12 @@ module.exports = function (app) {
 		}
 	);
 
-	app.post('/api/user/', (req, res) => {
-		const { email, password, name } = req.body;
-
+	app.post('/api/user', (req, res) => {
+		// const { email, password, name } = req.body;
+		console.log(req.body);
 		User.findOne({
 			Where: {
-				email,
+				email: req.body.email,
 			},
 		}).then((user) => {
 			if (user) {
@@ -30,10 +30,11 @@ module.exports = function (app) {
 				});
 			} else {
 				const newUser = {
-					name,
-					email,
-					password,
+					name: req.body.name,
+					email: req.body.email,
+					password: req.body.password,
 				};
+
 				bcrypt.genSalt(10, (err, salt) => {
 					bcrypt.hash(newUser.password, salt, (err, hash) => {
 						if (err) throw err;
