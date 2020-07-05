@@ -20,7 +20,7 @@ module.exports = function (app) {
 		// const { email, password, name } = req.body;
 		console.log(req.body);
 		User.findOne({
-			Where: {
+			where: {
 				email: req.body.email,
 			},
 		}).then((user) => {
