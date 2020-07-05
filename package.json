@@ -1,32 +1,37 @@
 {
-  "name": "trollo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "fs": "0.0.1-security",
-    "if-env": "^1.0.4",
-    "mongoose": "^5.9.21",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {
-    "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rwilliamsIII/Trollo.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rwilliamsIII/Trollo/issues"
-  },
-  "homepage": "https://github.com/rwilliamsIII/Trollo#readme"
+	"name": "trollo",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.js",
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"express-validator": "^6.6.0",
+		"fs": "0.0.1-security",
+		"if-env": "^1.0.4",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^5.9.21",
+		"path": "^0.12.7",
+		"request": "^2.88.2"
+	},
+	"devDependencies": {
+		"concurrently": "^5.2.0",
+		"nodemon": "^2.0.4"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node server",
+		"server": "nodemon server"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rwilliamsIII/Trollo.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/rwilliamsIII/Trollo/issues"
+	},
+	"homepage": "https://github.com/rwilliamsIII/Trollo#readme"
 }
