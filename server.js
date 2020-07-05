@@ -31,7 +31,7 @@ if (process.env.NODE_ENV === 'production') {
 	});
 }
 // Define Routes
-app.use('/users', require('./routes/users'));
+require('./routes/api/user')(app);
 // require("./routes/html-routes.js")(app);
 
 app.listen(PORT, function () {
