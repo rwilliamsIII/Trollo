@@ -1,6 +1,7 @@
 // Requiring our Todo model
 const router = require('express').Router();
 const User = require('../models/user');
+const Trollo = require('../models/trollo');
 
 // Routes
 router.get('/users', (req, res) => {
@@ -11,6 +12,13 @@ router.get('/users', (req, res) => {
 		.then((user) => res.json(user))
 		.catch((err) => res.status(422).json(err));
 	console.log(user);
+});
+
+router.get('/trollos', (req, res) => {
+    Trollo.find({})
+        .sort({date: -1})
+        .then((trollo) => res.json(trollo))
+        .catch((err) => res.status(422).json(err));
 });
 
 module.exports = router;
