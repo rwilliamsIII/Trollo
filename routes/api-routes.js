@@ -26,6 +26,13 @@ router.get('/inprogress', (req, res) => {
         .sort({ date: -1 })
         .then((trollo) => res.json(trollo))
         .catch((err) => res.status(422).json(err));
-})
+});
+
+router.get('completed', (req, res) => {
+    Trollo.find({completed: 'true'})
+        .sort({date: -1})
+        .then((trollo) => res.json(trollo))
+        .catch((err) => res.status(422).json(err));
+});
 
 module.exports = router;
