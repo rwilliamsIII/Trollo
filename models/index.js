@@ -1,3 +1,3 @@
-// module.exports = {
-//   User: require("./user")
-// };
+module.exports = {
+  Trollo: require("./Trollo")
+};

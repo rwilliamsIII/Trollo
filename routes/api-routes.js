@@ -38,7 +38,12 @@ router.get('/api/completed', (req, res) => {
 });
 
 router.post('/api/trollos', (req, res) => {
-    Trollo.create(body)
+    const newTrollo = {
+        title: req.body.title,
+        description: req.body.description,
+        dueDate: req.body.dueDate
+    }
+    Trollo.create(newTrollo)
     .then(dbTrollo => {
     console.log('Todo Created!');
     res.json(dbTrollo);
