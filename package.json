@@ -26,7 +26,7 @@
 		"client-install": "npm install --prefix client",
 		"server": "nodemon server",
 		"start": "node server",
-		"client": "npm start --prefix client",
+		"client": "cd client && npm start",
 		"dev": "concurrently \"npm run server\" \"npm run client\""
 	},
 	"repository": {
