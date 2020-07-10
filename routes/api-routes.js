@@ -1,43 +1,34 @@
 // Requiring our Todo model
-const router = require('express').Router();
-const User = require('../models/user');
-const Trollo = require('../models/trollo');
+module.exports = (app) => {
+    const Trollo = require('../models/trollo');
 
 // Routes
-router.get('/users', (req, res) => {
-	// Use a regular expression to search titles for req.query.q
-	// using case insensitive match. https://docs.mongodb.com/manual/reference/operator/query/regex/index.html
-	User.find({})
-		.sort({ date: -1 })
-		.then((user) => res.json(user))
-		.catch((err) => res.status(422).json(err));
-	console.log(user);
-});
+
 
 // Routes to todos
 
-router.get('/api/trollos', (req, res) => {
-    Trollo.find({})
+app.get('/api/trollos', (req, res) => {
+    Trollo.find({inProgress: 'false',completed: 'false'})
         .sort({date: -1})
         .then((trollo) => res.json(trollo))
         .catch((err) => res.status(422).json(err));
 });
 
-router.get('/api/inprogress', (req, res) => {
+app.get('/api/inprogress', (req, res) => {
     Trollo.find({inProgress: 'true'})
         .sort({ date: -1 })
         .then((trollo) => res.json(trollo))
         .catch((err) => res.status(422).json(err));
 });
 
-router.get('/api/completed', (req, res) => {
+app.get('/api/completed', (req, res) => {
     Trollo.find({completed: 'true'})
         .sort({date: -1})
         .then((trollo) => res.json(trollo))
         .catch((err) => res.status(422).json(err));
 });
 
-router.post('/api/trollos', (req, res) => {
+app.post('/api/trollos',  ({ body }, res) => {
     Trollo.create(body)
     .then(dbTrollo => {
     console.log('Todo Created!');
@@ -47,5 +38,5 @@ router.post('/api/trollos', (req, res) => {
         res.status(422).json(err);
     });
 });
+}
 
-module.exports = router;
