@@ -40,7 +40,7 @@ app.post('/api/trollos',  ({ body }, res) => {
 });
 
 app.delete('api/trollos/id:', (req, res) => {
-    Trollo.deleteOne({_id: req.body.id}, function(err, result){
+    Trollo.findOneAndRemove({_id: req.body.id}, function(err, result){
         if (err) {
             res.send(err);
         } else {
