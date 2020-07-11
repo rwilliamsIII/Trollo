@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import ThingsToDo from './ThingsToDo';
+
+
 
 class Dashboard extends Component {
 	state = {
@@ -35,6 +38,7 @@ class Dashboard extends Component {
 				<p>Welcome, name</p>
 				<p>Email Address:</p>
 				<div className='ui teal button'>Logout</div>
+				<ThingsToDo />
 			</div>
 		);
 	}
