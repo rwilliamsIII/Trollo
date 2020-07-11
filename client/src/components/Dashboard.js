@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import ThingsToDo from './ThingsToDo';
+import JumbotronTitle from './JumbotronTitle';
 
 
 
@@ -38,6 +39,7 @@ class Dashboard extends Component {
 				<p>Welcome, name</p>
 				<p>Email Address:</p>
 				<div className='ui teal button'>Logout</div>
+				<JumbotronTitle />
 				<ThingsToDo />
 			</div>
 		);
