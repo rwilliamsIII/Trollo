@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import ThingsToDo from './ThingsToDo';
-import JumbotronTitle from './JumbotronTitle';
+import ThingsToDo from '../components/ThingsToDo';
+import JumbotronTitle from '../components/JumbotronTitle';
 
 
 
