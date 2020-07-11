@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
-import NoMatch from './components/NoMatch';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import NoMatch from './pages/NoMatch';
 
 function App() {
 	return (
