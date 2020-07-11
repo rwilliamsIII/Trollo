@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import ThingsToDo from './ThingsToDo';
+import ThingsToDo from '../components/ThingsToDo';
+import JumbotronTitle from '../components/JumbotronTitle';
+import Biocard from '../components/Biocard';
 
 
 
@@ -33,11 +35,8 @@ class Dashboard extends Component {
 		}
 		return (
 			<div className='Dashboard'>
-				<div className='ui container'></div>
-				<h1>Dashboard</h1>
-				<p>Welcome, name</p>
-				<p>Email Address:</p>
-				<div className='ui teal button'>Logout</div>
+				<Biocard />
+				<JumbotronTitle />
 				<ThingsToDo />
 			</div>
 		);
