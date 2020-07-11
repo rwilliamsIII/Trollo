@@ -1,3 +1,5 @@
+const User = require('../../models/User');
+
 module.exports = (app) => {
 	const bcrypt = require('bcryptjs');
 	const jwt = require('jsonwebtoken');
@@ -50,6 +52,18 @@ module.exports = (app) => {
 			}
 		);
 };
+
+// Get route /api/user to get current user
+// app.get(
+// 	'/api/user',
+// 	passport.authenticate('jwt', { session: false }),
+// 	User.findOne({ _id })
+// 	.then (user => {
+// 		if (user) {
+// 			res.status(200).json(user);
+// 	}
+// })
+// 	.catch(err => console.log(err))
 
 // app.get(
 // 	'/api/user/test/',
