@@ -25,31 +25,28 @@ class Login extends Component {
 			email: this.state.email,
 			password: this.state.password,
 		};
-		console.log(newUser);
+
+		axios
+			.post('/api/user/login', newUser)
+			.then((res) => {
+				console.log(newUser);
+				this.setState({
+					redirect: true,
+					// 	errors: {},
+				});
+				console.log(res.data);
+			})
+			.catch((err) => console.log(err.response.data));
+		// this.state({
+		// errors: err.response.data;
 	};
 
-	// axios
-	// 	.post('/api/user/login', newUser)
-	// 	.then((res) => {
-	// 		console.log(newUser);
-	// 		this.setState({
-	// 			redirect: true,
-	// 			errors: {},
-	// 		});
-	// 		console.log(res.data);
-	// 	})
-	// 	.catch((err) => console.log(err.response.data));
-	// //this.state({
-	//errors: err.response.data
-	//});
-	//};
-
 	render() {
-		// const { errors, redirect } = this.state;
+		const { errors, redirect } = this.state;
 
-		// if (redirect) {
-		// 	return <Redirect to='/dashboard' />;
-		// }
+		if (redirect) {
+			return <Redirect to='/dashboard' />;
+		}
 		return (
 			<div className='Login'>
 				<div className='ui container'>
