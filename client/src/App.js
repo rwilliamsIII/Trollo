@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import PrivateRoute from './utils/PrivateRoute';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -11,7 +12,7 @@ function App() {
 			<Router>
 				<Switch>
 					<Route exact path='/' component={Login} />
-					<Route exact path='/Dashboard' component={Dashboard} />
+					<PrivateRoute exact path='/Dashboard' component={Dashboard} />
 					<Route component={NoMatch} />
 				</Switch>
 			</Router>
