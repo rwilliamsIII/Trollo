@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const db = require('../models');
+// const db = require('../models');
+const Trollo = require('../models/Trollo');
 
 mongoose.connect('mongodb://localhost/trollo', {
     useNewUrlParser: true,
@@ -11,18 +12,18 @@ let trolloSeed = [
         title: 'Finish this project',
         description: 'Complete final project for the bootcamp!',
         dueDate: '7/25/20',
-        inProgress: 'true',
-        completed: 'false'
+        inProgress: 'false',
+        completed: 'true'
     },
     {
-        title: 'Finish this project',
+        title: 'Finish this project2',
         description: 'Complete final project for the bootcamp!',
         dueDate: '7/25/20',
         inProgress: 'false',
         completed: 'false'
     },
     {
-        title: 'Finish this project',
+        title: 'Finish this project3',
         description: 'Complete final project for the bootcamp!',
         dueDate: '7/25/20',
         inProgress: 'true',
@@ -30,8 +31,8 @@ let trolloSeed = [
     }
 ];
 
-db.Trollo.deleteMany({})
-  .then(() => db.Workout.collection.insertMany(trolloSeed))
+Trollo.deleteMany({})
+  .then(() => Trollo.collection.insertMany(trolloSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
