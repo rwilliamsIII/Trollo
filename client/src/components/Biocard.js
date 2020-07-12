@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 class Biocard extends Component {
 	state = {
 		redirect: false,
 	};
+
+	componentDidMount() {
+		axios
+			.get('/api/user')
+			.then((res) => {
+				console.log(res);
+			})
+			.catch((err) => console.log(err));
+	}
 
 	handleLogout = () => {
 		localStorage.removeItem('trollo');

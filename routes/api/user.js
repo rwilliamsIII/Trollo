@@ -7,7 +7,7 @@ module.exports = (app) => {
 	const keys = require('../../config/keys');
 	const User = require('../../models/User');
 
-	app.post('/api/user', async (req, res) => {
+	app.post('/api/user/register', async (req, res) => {
 		const { email, password, name } = req.body;
 
 		const validateEmail = await User.findOne({ email });
@@ -51,6 +51,19 @@ module.exports = (app) => {
 				res.status(200).send('Authorized.');
 			}
 		);
+	app.get('/api/user'),
+		//const { id } = req.body;
+		passport.authenticate('jwt', { session: false }),
+		(req, res) => {
+			User.findOne({ where: { id: req.user._id } })
+				.then((user) => {
+					if (user) {
+						res.status(200).json(user);
+					}
+				})
+
+				.catch((err) => console.log(err));
+		};
 };
 
 // Get route /api/user to get current user
