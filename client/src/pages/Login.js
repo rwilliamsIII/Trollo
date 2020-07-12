@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import authenticate from '../utils/Authenticate';
 
 class Login extends Component {
 	constructor() {
@@ -12,6 +13,17 @@ class Login extends Component {
 			errors: {},
 		};
 	}
+
+	componentDidMount() {
+		const token = localStorage.getItem('tollo');
+
+		if (authenticate(token)) {
+			this.setState({
+				redirect: true,
+			});
+		}
+	}
+
 	onChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value,
