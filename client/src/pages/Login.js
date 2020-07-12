@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-import { response } from 'express';
 
 class Login extends Component {
 	constructor() {
@@ -32,8 +31,8 @@ class Login extends Component {
 			.then((res) => {
 				console.log(newUser);
 
-				if (response.data.token) {
-					const { token } = response.data;
+				if (res.data.token) {
+					const { token } = res.data;
 					// save token to localstorage
 					localStorage.setItem('trollo', token);
 
