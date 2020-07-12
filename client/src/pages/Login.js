@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import { response } from 'express';
 
 class Login extends Component {
 	constructor() {
@@ -30,10 +31,17 @@ class Login extends Component {
 			.post('/api/user/login', newUser)
 			.then((res) => {
 				console.log(newUser);
-				this.setState({
-					redirect: true,
-					// 	errors: {},
-				});
+
+				if (response.data.token) {
+					const { token } = response.data;
+
+					localStorage.setItem('trollo', token);
+
+					this.setState({
+						redirect: true,
+						// 	errors: {},
+					});
+				}
 				console.log(res.data);
 			})
 			.catch((err) => console.log(err.response.data));
