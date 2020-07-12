@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import authenticate from '../utils/Authenticate';
 
 class Login extends Component {
 	constructor() {
@@ -12,6 +13,17 @@ class Login extends Component {
 			errors: {},
 		};
 	}
+
+	componentDidMount() {
+		const token = localStorage.getItem('tollo');
+
+		if (authenticate(token)) {
+			this.setState({
+				redirect: true,
+			});
+		}
+	}
+
 	onChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value,
@@ -30,10 +42,17 @@ class Login extends Component {
 			.post('/api/user/login', newUser)
 			.then((res) => {
 				console.log(newUser);
-				this.setState({
-					redirect: true,
-					// 	errors: {},
-				});
+
+				if (res.data.token) {
+					const { token } = res.data;
+					// save token to localstorage
+					localStorage.setItem('trollo', token);
+
+					this.setState({
+						redirect: true,
+						// 	errors: {},
+					});
+				}
 				console.log(res.data);
 			})
 			.catch((err) => console.log(err.response.data));
@@ -68,7 +87,6 @@ class Login extends Component {
 								onChange={this.onChange}
 							/>
 							<input type='submit' className='ui teal button' />
-							Submit
 						</div>
 					</form>
 				</div>
