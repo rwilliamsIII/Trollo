@@ -1,5 +1,5 @@
 import jwt_decode from 'jwt-decode';
-// grab local token if stored in localstorage from login page,
+// grab local token if stored in localstorage from login page, Checking if token can be authenticated. This is called from privateroute.
 
 const authenticate = () => {
 	let tokenValid = true;
