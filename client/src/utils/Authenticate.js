@@ -11,7 +11,7 @@ const authenticate = () => {
 		const currentTime = new Date().getTime() / 1000;
 
 		if (currentTime > decode.exp) {
-			tokenValid: false;
+			tokenValid = false;
 			return tokenValid;
 		}
 		return null;
