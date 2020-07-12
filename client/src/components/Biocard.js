@@ -8,6 +8,12 @@ class Biocard extends Component {
 	};
 
 	componentDidMount() {
+		const token = localStorage.getItem('trollo');
+
+		if (token) {
+			setAuthToken(token);
+		}
+
 		axios
 			.get('/api/user')
 			.then((res) => {
