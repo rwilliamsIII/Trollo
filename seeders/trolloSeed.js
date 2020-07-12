@@ -9,22 +9,22 @@ mongoose.connect('mongodb://localhost/trollo', {
 
 let trolloSeed = [
     {
-        title: 'Finish this project',
-        description: 'Complete final project for the bootcamp!',
-        dueDate: '7/25/20',
+        title: 'Login',
+        description: 'Login to the Trollo app!',
+        dueDate: '7/12/20',
         inProgress: 'false',
         completed: 'true'
     },
     {
-        title: 'Finish this project2',
-        description: 'Complete final project for the bootcamp!',
-        dueDate: '7/25/20',
+        title: 'Take a vacation!',
+        description: 'Go on vacation after the bootcamp!',
+        dueDate: '7/26/20',
         inProgress: 'false',
         completed: 'false'
     },
     {
-        title: 'Finish this project3',
-        description: 'Complete final project for the bootcamp!',
+        title: 'Finish this project',
+        description: 'Complete the bootcamp!',
         dueDate: '7/25/20',
         inProgress: 'true',
         completed: 'false'
