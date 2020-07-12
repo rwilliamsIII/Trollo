@@ -11,7 +11,7 @@ module.exports = (app) => {
 		const { email, password, name } = req.body;
 
 		const validateEmail = await User.findOne({ email });
-		if (!validateEmail) return res.status(400).send('Email exists.');
+		if (validateEmail) return res.status(400).send('Email exists.');
 
 		const salt = await bcrypt.genSalt();
 		const hash = await bcrypt.hash(password, salt);
