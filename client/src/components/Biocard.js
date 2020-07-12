@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { Container, Row, Col } from 'react-grid-system';
 
 class Biocard extends Component {
 	state = {
