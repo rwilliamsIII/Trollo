@@ -30,7 +30,9 @@
 		"server": "nodemon server",
 		"start": "node server",
 		"client": "cd client && npm start",
-		"dev": "concurrently \"npm run server\" \"npm run client\""
+		"dev": "concurrently \"npm run server\" \"npm run client\"",
+		"seed": "node seeders/trolloSeed.js",
+		"seed2": "node seeders/userSeed.js"
 	},
 	"repository": {
 		"type": "git",
