@@ -6,8 +6,6 @@ import JumbotronTitle from '../components/JumbotronTitle';
 import Biocard from '../components/Biocard';
 import { Container, Row, Col } from 'react-grid-system';
 
-
-
 class Dashboard extends Component {
 	state = {
 		redirect: false,
@@ -22,34 +20,19 @@ class Dashboard extends Component {
 	// 	}
 	// }
 
-	handleLogout = () => {
-		localStorage.removeItem('example-app');
-		this.setState({
-			redirect: true,
-		});
-	};
-
 	render() {
-		const { redirect } = this.state;
-		if (redirect) {
-			return <Redirect to='/' />;
-		}
 		return (
 			<div className='Dashboard'>
 				<Container>
-
 					<Row>
-
-						<Col md={6} >
+						<Col md={6}>
 							<Biocard />
 						</Col>
 
 						<Col md={6}>
 							<JumbotronTitle />
 						</Col>
-
 					</Row>
-
 				</Container>
 				<ThingsToDo />
 			</div>
