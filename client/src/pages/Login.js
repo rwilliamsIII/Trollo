@@ -34,7 +34,7 @@ class Login extends Component {
 
 				if (response.data.token) {
 					const { token } = response.data;
-
+					// save token to localstorage
 					localStorage.setItem('trollo', token);
 
 					this.setState({
