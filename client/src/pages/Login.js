@@ -75,7 +75,6 @@ class Login extends Component {
 								onChange={this.onChange}
 							/>
 							<input type='submit' className='ui teal button' />
-							Submit
 						</div>
 					</form>
 				</div>

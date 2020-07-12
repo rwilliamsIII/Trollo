@@ -14,8 +14,9 @@ const authenticate = () => {
 			tokenValid = false;
 			return tokenValid;
 		}
-		return null;
+		return tokenValid;
 	}
+	return null;
 };
 
 export default authenticate;
