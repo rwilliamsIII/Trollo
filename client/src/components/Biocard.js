@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import setAuthToken from '../utils/setAuthToken';
+//import { response } from 'express';
+//import user from '../../../routes/api/user';
 
 class Biocard extends Component {
 	state = {
 		redirect: false,
+		user: {},
 	};
 
 	componentDidMount() {
@@ -17,7 +21,9 @@ class Biocard extends Component {
 		axios
 			.get('/api/user')
 			.then((res) => {
-				console.log(res);
+				this.setState({
+					user: res.data,
+				});
 			})
 			.catch((err) => console.log(err));
 	}
@@ -30,7 +36,7 @@ class Biocard extends Component {
 	};
 
 	render() {
-		const { redirect } = this.state;
+		const { redirect, user } = this.state;
 		if (redirect) {
 			return <Redirect to='/' />;
 		}
@@ -38,9 +44,9 @@ class Biocard extends Component {
 		return (
 			<div className='Biocard'>
 				<div className='ui container'></div>
-				<h1>Dashboard</h1>
-				<p>Welcome, name</p>
-				<p>Email Address:</p>
+				<h1>Welcome,</h1>
+				<p>{user.name}</p>
+				<p>{user.email}</p>
 				<div className='ui teal button' onClick={this.handleLogout}>
 					Logout
 				</div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import authenticate from '../utils/Authenticate';
+import setAuthToken from '../utils/setAuthToken';
 
 class Login extends Component {
 	constructor() {
@@ -45,8 +46,9 @@ class Login extends Component {
 
 				if (res.data.token) {
 					const { token } = res.data;
-					// save token to localstorage
+					// save token to local storage
 					localStorage.setItem('trollo', token);
+					setAuthToken(token);
 
 					this.setState({
 						redirect: true,
