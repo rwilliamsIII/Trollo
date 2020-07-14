@@ -44,6 +44,23 @@ module.exports = (app) => {
 
 			res.status(200).send({ token: `Bearer ${token}` });
 		}),
+		// app.get(
+		// 	'/api/user',
+		// 	passport.authenticate('jwt', { session: false }),
+		// 	(req, res) => {
+		// 		const userID = req.body._id;
+		// 		const user = await User.findOne({ _id });
+		// 		if (!user)
+		// 		return res.status(200).send('user not found');
+		// 	})
+		// 		if (user) = await return res.json({
+		// 		user: {
+		// 			email: user.email,
+		// 			name: user.name
+		// 		},
+		// 	})
+		// 	.status(200);
+		// }
 		app.get(
 			'/api/user/validate',
 			passport.authenticate('jwt', { session: false }),
@@ -51,97 +68,15 @@ module.exports = (app) => {
 				res.status(200).send('Authorized.');
 			}
 		);
+
+	// 	app.get(
+	// 		'/api/user/test',
+	// 		passport.authenticate('jwt', { session: false }),
+	// 		(req, res) => {
+	// 			res.json({
+	// 				success: true,
+	// 				msg: 'Testing endpoint works',
+	// 			});
+	// 		}
+	// 	);
 };
-
-// Get route /api/user to get current user
-// app.get(
-// 	'/api/user',
-// 	passport.authenticate('jwt', { session: false }),
-// 	User.findOne({ _id })
-// 	.then (user => {
-// 		if (user) {
-// 			res.status(200).json(user);
-// 	}
-// })
-// 	.catch(err => console.log(err))
-
-// app.get(
-// 	'/api/user/test/',
-// 	// passport.authenticate('jwt', { session: false }),
-// 	(req, res) => {
-// 		res.json({
-// 			success: true,
-// 			msg: 'Testing endpoint works',
-// 		});
-// 	}
-// );
-
-// 	// const { email, password, name } = req.body;
-// 	console.log(req.body);
-// 	User.findOne({
-// 		Where: {
-// 			email: req.body.email,
-// 		},
-// 	}).then((user) => {
-// 		if (user) {
-// 			return res.status(400).json({
-// 				email: 'this email already taken',
-// 			});
-// 		} else {
-// 			const newUser = {
-// 				name: req.body.name,
-// 				email: req.body.email,
-// 				password: req.body.password,
-// 			};
-
-// 			bcrypt.genSalt(10, (err, salt) => {
-// 				bcrypt.hash(newUser.password, salt, (err, hash) => {
-// 					if (err) throw err;
-// 					newUser.password = hash;
-
-// 					User.create(newUser)
-// 						.then((user) => {
-// 							res.status(200).json({
-// 								message: 'user created',
-// 								userCreated: true,
-// 							});
-// 						})
-// 						.catch((err) => console.log(err));
-// 				});
-// 			});
-// 		}
-// 	});
-// });
-
-// app.put(
-// 	'api/user/',
-// 	passport.authenticate('jwt', { session: false }),
-// 	(req, res) => {
-// 		console.log(req.user);
-// 		User.update(
-// 			{
-// 				name: req.body.name,
-// 				email: req.body.email,
-// 			},
-// 			{
-// 				where: {
-// 					id: req.user.id,
-// 				},
-// 			}
-// 		).then(() => {
-// 			User.findById(req.user.id)
-// 				.then((user) => {
-// 					res.status(200),
-// 						json({
-// 							email: user.email,
-// 							name: user.name,
-// 							message: 'User updated',
-// 							userUpdated: true,
-// 						});
-// 				})
-// 				.catch((err) => {
-// 					res.status(500).json(err);
-// 				});
-// 		});
-// 	}
-// );
