@@ -8,9 +8,7 @@ module.exports = (app) => {
 
 
 // Routes to todos
-app.get('/api/test', passport.authenticate('jwt', {session: false}), (req, res) => {
-    res.json({msg: 'It Works!'});
-})
+
 app.get('/api/trollos', (req, res) => {
     Trollo.find({inProgress: 'false',completed: 'false'})
         .sort({date: -1})
@@ -41,7 +39,7 @@ app.post('/api/trollos', passport.authenticate('jwt', {session: false}),  (req, 
     inProgress: false,
     completed: false }}}).then(updated => res.json({msg: 'User successfully updated'})).catch(error => res.json({err: error}));
 });
-// db.people.update({name: "John"}, {$push: {friends: {firstName: "Harry", lastName: "Potter"}}});
+
 app.delete('api/trollos/id:', (req, res) => {
     Trollo.findOneAndRemove({_id: req.body.id}, function(err, result){
         if (err) {
