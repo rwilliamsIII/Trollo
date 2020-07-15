@@ -18,11 +18,14 @@ class Biocard extends Component {
 			setAuthToken(token);
 		}
 
+		// name: req.body.name,
+		// email: req.body.email
+
 		axios
 			.get('/api/user')
 			.then((res) => {
 				this.setState({
-					user: res.data,
+					user: res.data.token,
 				});
 			})
 			.catch((err) => console.log(err));
