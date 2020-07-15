@@ -7,7 +7,7 @@ module.exports = (app) => {
 	const keys = require('../../config/keys');
 	const User = require('../../models/User');
 
-	app.post('/api/user', async (req, res) => {
+	app.post('/api/user/register', async (req, res) => {
 		const { email, password, name } = req.body;
 
 		const validateEmail = await User.findOne({ email });

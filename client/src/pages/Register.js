@@ -4,13 +4,14 @@ import { Redirect } from 'react-router-dom';
 import authenticate from '../utils/Authenticate';
 import setAuthToken from '../utils/setAuthToken';
 
-class Login extends Component {
+class Register extends Component {
 	constructor() {
 		super();
 		this.state = {
 			redirect: false,
 			email: '',
 			password: '',
+			name: '',
 			errors: {},
 		};
 	}
@@ -37,24 +38,25 @@ class Login extends Component {
 		const newUser = {
 			email: this.state.email,
 			password: this.state.password,
+			name: this.state.name,
 		};
 
 		axios
-			.post('/api/user/login', newUser)
+			.post('/api/user/register', newUser)
 			.then((res) => {
 				console.log(newUser);
+				this.setState({
+					redirect: true,
+					// 	errors: {},
+				});
 
-				if (res.data.token) {
-					const { token } = res.data;
-					// save token to local storage
-					localStorage.setItem('trollo', token);
-					setAuthToken(token);
+				// if (res.data.token) {
+				// 	const { token } = res.data;
+				// 	// save token to local storage
+				// 	localStorage.setItem('trollo', token);
+				// 	setAuthToken(token);
 
-					this.setState({
-						redirect: true,
-						// 	errors: {},
-					});
-				}
+				// }
 				console.log(res.data);
 			})
 			.catch((err) => console.log(err.response.data));
@@ -66,14 +68,21 @@ class Login extends Component {
 		const { errors, redirect } = this.state;
 
 		if (redirect) {
-			return <Redirect to='/dashboard' />;
+			return <Redirect to='/' />;
 		}
 		return (
-			<div className='Sign Up'>
+			<div className='Login'>
 				<div className='ui container'>
-					<h3>Login Page </h3>
+					<h3>Sign Up</h3>
 					<form onSubmit={this.onSubmit}>
 						<div className='ui form'>
+							<input
+								type='name'
+								name='name'
+								placeholder='Enter Name'
+								value={this.state.name}
+								onChange={this.onChange}
+							/>
 							<input
 								type='email'
 								name='email'
@@ -97,4 +106,4 @@ class Login extends Component {
 	}
 }
 
-export default Login;
+export default Register;

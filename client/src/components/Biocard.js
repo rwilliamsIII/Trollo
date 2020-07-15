@@ -48,7 +48,7 @@ class Biocard extends Component {
 				<p>{user.name}</p>
 				<p>{user.email}</p>
 				<div className='ui teal button' onClick={this.handleLogout}>
-					Logout
+					Logout!
 				</div>
 			</div>
 		);
