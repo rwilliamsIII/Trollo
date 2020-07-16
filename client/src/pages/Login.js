@@ -4,14 +4,7 @@ import { Redirect } from 'react-router-dom';
 import authenticate from '../utils/Authenticate';
 import setAuthToken from '../utils/setAuthToken';
 import { ReactComponent as BackgroundImg } from '../img/floating-cogs-2.svg';
-
-const styles = {
-	jumbotron: {
-		backgroundRepeat: 'repeat',
-		color: '#517aac',
-		backgroundSize: 'cover',
-	},
-};
+import { ReactComponent as Logo } from '../img/trollo-logo-01.svg';
 
 class Login extends Component {
 	constructor() {
@@ -80,7 +73,8 @@ class Login extends Component {
 		}
 		return (
 			<div>
-				<img src={BackgroundImg} className='styles.jumbotron' />
+				<BackgroundImg className='jumbotron' />
+				<Logo />
 				<div className='ui middle aligned center aligned grid'>
 					<div className='column'>
 						<h2 className='ui image header'>

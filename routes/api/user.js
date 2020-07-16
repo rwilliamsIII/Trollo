@@ -57,7 +57,7 @@ module.exports = (app) => {
 		passport.authenticate('jwt', { session: false }),
 		(req, res) => {
 			console.log(req.user);
-			User.findOne({ where: { _id: req.user._id } })
+			User.findOne({ _id: req.user._id })
 				.then((user) => {
 					if (user) {
 						res.status(200).json(user);

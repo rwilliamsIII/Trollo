@@ -4,11 +4,11 @@
 	font-family: 'Roboto', sans-serif;
 }
 body {
-	background-color: #6c99ce;
+	background-color: #3d6ea7;
 	color: #585858;
 }
 a:link {
-	color: #808080;
+	color: #32cd32;
 }
 
 /* visited link */
@@ -31,11 +31,16 @@ a:active {
 }
 body > .grid {
 	height: 150%;
-	background-color: #517aac;
+	background-color: #2a4a70;
 }
 .image {
 	margin-top: 100px;
 }
 .column {
 	max-width: 700px;
+}
+.jumbotron {
+	backgroundrepeat: repeat;
+	color: #517aac;
+	backgroundsize: cover;
 }
