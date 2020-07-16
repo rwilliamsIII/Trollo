@@ -5,6 +5,14 @@ import authenticate from '../utils/Authenticate';
 import setAuthToken from '../utils/setAuthToken';
 import { ReactComponent as BackgroundImg } from '../img/floating-cogs-2.svg';
 
+const styles = {
+	jumbotron: {
+		backgroundRepeat: 'repeat',
+		color: '#517aac',
+		backgroundSize: 'cover',
+	},
+};
+
 class Login extends Component {
 	constructor() {
 		super();
@@ -72,29 +80,44 @@ class Login extends Component {
 		}
 		return (
 			<div>
-				<BackgroundImg />
-				<div className='Login'>
-					<div className='ui container'>
-						<h3>Login Page </h3>
-						<form onSubmit={this.onSubmit}>
-							<div className='ui form'>
-								<input
-									type='email'
-									name='email'
-									placeholder='Email address'
-									value={this.state.email}
-									onChange={this.onChange}
-								/>
-								<input
-									type='password'
-									name='password'
-									placeholder='Enter Password'
-									value={this.state.password}
-									onChange={this.onChange}
-								/>
-								<input type='submit' className='ui teal button' />
+				<img src={BackgroundImg} className='styles.jumbotron' />
+				<div className='ui middle aligned center aligned grid'>
+					<div className='column'>
+						<h2 className='ui image header'>
+							<div className='content'>Log-in to your account</div>
+						</h2>
+						<form className='ui large form' onSubmit={this.onSubmit}>
+							<div className='ui stacked secondary  segment'>
+								<div className='field'>
+									<div className='ui left icon input'>
+										<i className='user icon'></i>
+										<input
+											type='email'
+											name='email'
+											placeholder='Email address'
+											value={this.state.email}
+											onChange={this.onChange}
+										/>
+									</div>
+								</div>
+								<div className='field'>
+									<div className='ui left icon input'>
+										<i className='lock icon'></i>
+										<input
+											type='password'
+											name='password'
+											placeholder='Enter Password'
+											value={this.state.password}
+											onChange={this.onChange}
+										/>
+									</div>
+								</div>
+								<input type='submit' className='ui fluid large olive button' />
 							</div>
 						</form>
+						<div className='ui message'>
+							<div>Give us a try and sign up!</div>
+						</div>
 					</div>
 				</div>
 			</div>
