@@ -13,6 +13,18 @@ class Dashboard extends Component {
 		todos: []
 	};
 
+	componentDidMount() {
+		axios.get('/api/trollos')
+		.then(response => {
+            this.setState({
+                todos: response.data.todos
+            })
+			 console.log(response);
+		})
+		.catch(err => console.log(err.response));
+        }
+        
+
 	render() {
 		return (
 			<div className='Dashboard'>

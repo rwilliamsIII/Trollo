@@ -14,22 +14,8 @@ import axios from 'axios';
 //     }
 
 
-    // componentDidMount() {
-	// 	axios.get('/api/trollos')
-	// 	.then(response => {
-    //         this.setState({
-    //             trollos: response.data.todos
-    //         })
-	// 		 console.log(response);
-	// 	})
-	// 	.catch(err => console.log(err.response));
-    //     }
-        
-    //     render(){
-    //         return(<p>Hello</p>)
-            
-    //     }
-	// }
+    
+
 
 
 function Accordion(props) {
