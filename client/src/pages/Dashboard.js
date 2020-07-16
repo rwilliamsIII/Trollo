@@ -11,15 +11,6 @@ class Dashboard extends Component {
 		redirect: false,
 	};
 
-	// componentDidMount() {
-	// 	axios.get('/api/user')
-	// 	.then(response => {
-	// 		 console.log(response);
-	// 	})
-	// 	.catch(err => console.log(err.response));
-	// 	}
-	// }
-
 	render() {
 		return (
 			<div className='Dashboard'>

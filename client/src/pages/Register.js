@@ -71,7 +71,7 @@ class Register extends Component {
 			return <Redirect to='/' />;
 		}
 		return (
-			<div className='Login'>
+			<div className='Sign Up'>
 				<div className='ui container'>
 					<h3>Sign Up</h3>
 					<form onSubmit={this.onSubmit}>
