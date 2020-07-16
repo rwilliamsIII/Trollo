@@ -1,1 +1,41 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+body {
+	background-color: #6c99ce;
+	color: #585858;
+}
+a:link {
+	color: #808080;
+}
 
+/* visited link */
+a:visited {
+	color: #808080;
+}
+
+/* mouse over link */
+a:hover {
+	color: #808080;
+}
+
+/* selected link */
+a:active {
+	color: #101010;
+}
+
+.App {
+	text-align: center;
+}
+body > .grid {
+	height: 150%;
+	background-color: #517aac;
+}
+.image {
+	margin-top: 100px;
+}
+.column {
+	max-width: 700px;
+}
