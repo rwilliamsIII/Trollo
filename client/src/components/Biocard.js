@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Profile from '../components/Profile';
+import LogoutBtn from '../components/LogoutBtn';
+
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
@@ -8,50 +11,14 @@ import setAuthToken from '../utils/setAuthToken';
 class Biocard extends Component {
 	state = {
 		redirect: false,
-		user: {},
 	};
-
-	componentDidMount() {
-		const token = localStorage.getItem('trollo');
-
-		if (token) {
-			setAuthToken(token);
-		}
-
-		// name: req.body.name,
-		// email: req.body.email
-
-		axios
-			.get('/api/user')
-			.then((res) => {
-				this.setState({
-					user: res.data.token,
-				});
-			})
-			.catch((err) => console.log(err));
-	}
-
-	handleLogout = () => {
-		localStorage.removeItem('trollo');
-		this.setState({
-			redirect: true,
-		});
-	};
-
 	render() {
-		const { redirect, user } = this.state;
-		if (redirect) {
-			return <Redirect to='/' />;
-		}
-
 		return (
-			<div className='Biocard'>
-				<div className='ui container'></div>
-				<h1>Welcome,</h1>
-				<p>{user.name}</p>
-				<p>{user.email}</p>
-				<div className='ui teal button' onClick={this.handleLogout}>
-					Logout!
+			<div>
+				<div className='Biocard'>
+					<Profile />
+
+					<LogoutBtn />
 				</div>
 			</div>
 		);

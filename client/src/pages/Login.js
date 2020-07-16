@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import authenticate from '../utils/Authenticate';
 import setAuthToken from '../utils/setAuthToken';
+import { ReactComponent as BackgroundImg } from '../img/floating-cogs-2.svg';
 
 class Login extends Component {
 	constructor() {
@@ -17,7 +18,7 @@ class Login extends Component {
 	}
 
 	componentDidMount() {
-		const token = localStorage.getItem('tollo');
+		const token = localStorage.getItem('trollo');
 
 		if (authenticate(token)) {
 			this.setState({
@@ -56,7 +57,7 @@ class Login extends Component {
 						// 	errors: {},
 					});
 				}
-				console.log(res.data);
+				//console.log(res.data);
 			})
 			.catch((err) => console.log(err.response.data));
 		// this.state({
@@ -70,28 +71,31 @@ class Login extends Component {
 			return <Redirect to='/dashboard' />;
 		}
 		return (
-			<div className='Sign Up'>
-				<div className='ui container'>
-					<h3>Login Page </h3>
-					<form onSubmit={this.onSubmit}>
-						<div className='ui form'>
-							<input
-								type='email'
-								name='email'
-								placeholder='Email address'
-								value={this.state.email}
-								onChange={this.onChange}
-							/>
-							<input
-								type='password'
-								name='password'
-								placeholder='Enter Password'
-								value={this.state.password}
-								onChange={this.onChange}
-							/>
-							<input type='submit' className='ui teal button' />
-						</div>
-					</form>
+			<div>
+				<BackgroundImg />
+				<div className='Login'>
+					<div className='ui container'>
+						<h3>Login Page </h3>
+						<form onSubmit={this.onSubmit}>
+							<div className='ui form'>
+								<input
+									type='email'
+									name='email'
+									placeholder='Email address'
+									value={this.state.email}
+									onChange={this.onChange}
+								/>
+								<input
+									type='password'
+									name='password'
+									placeholder='Enter Password'
+									value={this.state.password}
+									onChange={this.onChange}
+								/>
+								<input type='submit' className='ui teal button' />
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		);
