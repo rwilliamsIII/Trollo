@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import ThingsToDo from '../components/ThingsToDo';
+import Accordion from '../components/Accordion'
+import Todos from '../components/Todos'
 import JumbotronTitle from '../components/JumbotronTitle';
 import Biocard from '../components/Biocard';
 import { Container, Row, Col } from 'react-grid-system';
@@ -9,6 +10,7 @@ import { Container, Row, Col } from 'react-grid-system';
 class Dashboard extends Component {
 	state = {
 		redirect: false,
+		todos: []
 	};
 
 	render() {
@@ -25,7 +27,9 @@ class Dashboard extends Component {
 						</Col>
 					</Row>
 				</Container>
-				<ThingsToDo />
+				<Accordion>
+					<Todos />
+				</Accordion>
 			</div>
 		);
 	}
