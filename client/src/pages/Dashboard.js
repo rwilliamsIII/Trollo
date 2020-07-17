@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 // import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Todos from '../components/Todos'
-import JumbotronTitle from '../components/JumbotronTitle';
+// import JumbotronTitle from '../components/JumbotronTitle';
 import Biocard from '../components/Biocard';
 import AddTodo from '../components/AddTodo';
 import { Container, Row, Col } from 'react-grid-system';
+
 
 class Dashboard extends Component {
 	state = {
@@ -16,8 +17,16 @@ class Dashboard extends Component {
 
 	componentDidMount() {
 		axios.get('/api/user')
-		.then(res => this.setState({ todos: res.data.todos}));
-        }
+		.then(res => this.setState({ todos: res.data.todos }));
+	}
+		
+
+	addTodo = newTodo => {
+		axios.post('/api/trollos', {
+			newTodo,
+		}).then(res => this.setState({todos: [...this.state.todos, res.data]}))
+	
+	};
         
 
 	render() {
@@ -30,7 +39,7 @@ class Dashboard extends Component {
 						</Col>
 
 						<Col md={8}>
-							<AddTodo />
+							<AddTodo addTodo={this.addTodo}/>
 						</Col>
 					</Row>
 				</Container>
