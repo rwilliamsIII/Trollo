@@ -40,7 +40,7 @@ class LogoutBtn extends Component {
 		}
 		return (
 			<div>
-				<div className='ui teal button' onClick={this.handleLogout}>
+				<div className='ui olive button' onClick={this.handleLogout}>
 					Logout!
 				</div>
 			</div>

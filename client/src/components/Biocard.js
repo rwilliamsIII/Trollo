@@ -35,8 +35,6 @@ class Biocard extends Component {
 			<div>
 				<div className='Biocard'>
 					<Profile />
-
-					<LogoutBtn />
 				</div>
 			</div>
 		);

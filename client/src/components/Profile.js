@@ -3,6 +3,7 @@ import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import { Redirect } from 'react-router-dom';
 import authenticate from '../utils/Authenticate';
+import LogoutBtn from '../components/LogoutBtn';
 
 class Profile extends Component {
 	constructor() {
@@ -32,11 +33,28 @@ class Profile extends Component {
 	render() {
 		const { user } = this.state;
 		return (
-			<div className='Biocard'>
-				<div className='ui container'></div>
-				<h1>Welcome</h1>
-				<p>{user.name}</p>
-				<p>{user.email}</p>
+			<div>
+				<div className='Biocard'>
+					<div className='ui container'>
+						<div className='ui card'>
+							<div className='content'>
+								<div class='center aligned header'>{user.name}</div>
+
+								<div class='center aligned description'>
+									<p>JeLorem ipsum dolor sit amet, et amet facilis pro.</p>
+								</div>
+							</div>
+							<LogoutBtn />
+							<div class='extra content'>
+								<div class='center aligned author'>
+									<i class='user icon'></i>
+
+									<p>{user.email}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		);
 	}
