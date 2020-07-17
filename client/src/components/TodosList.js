@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-// import Axios from 'axios';
+import { Accordion, Card, Button } from 'react-bootstrap'
 
 
 export class TodosList extends Component {
@@ -13,10 +13,20 @@ export class TodosList extends Component {
 render(){
     const { title, description } = this.props.todo;
         return (
-        <div>
-            <p>{ title }</p>
-            <p>{ description }</p>
-        </div>
+        <Accordion>
+            <Card>
+                <Card.Header>
+                    <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                        { title }
+                    </Accordion.Toggle>
+                </Card.Header>
+                <Accordion.Collapse eventKey="0">
+                    <Card.Body>
+                        { description }
+                    </Card.Body>
+                </Accordion.Collapse>
+            </Card>
+        </Accordion>
         )
 
 }
