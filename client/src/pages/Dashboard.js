@@ -4,6 +4,7 @@ import axios from 'axios';
 import ThingsToDo from '../components/ThingsToDo';
 import JumbotronTitle from '../components/JumbotronTitle';
 import Biocard from '../components/Biocard';
+import AddTodo from '../components/AddTodo';
 import { Container, Row, Col } from 'react-grid-system';
 
 class Dashboard extends Component {
@@ -16,12 +17,12 @@ class Dashboard extends Component {
 			<div className='Dashboard'>
 				<Container>
 					<Row>
-						<Col md={6}>
+						<Col md={4}>
 							<Biocard />
 						</Col>
 
-						<Col md={6}>
-							<JumbotronTitle />
+						<Col md={8}>
+							<AddTodo />
 						</Col>
 					</Row>
 				</Container>
