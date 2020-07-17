@@ -7,6 +7,7 @@ class AddTodo extends Component {
 		title: '',
 		description: '',
 		dueDate: '',
+
 	};
 
 	onChange = (e) =>
@@ -15,8 +16,10 @@ class AddTodo extends Component {
 		});
 
 	onSubmit = (e) => {
+		const { title, description, dueDate } = this.state
 		e.preventDefault();
-		// this.props.AddTodo(this.state.title), this.setState({ title: '' });
+		this.props.addTodo({title, description, dueDate});
+		this.setState({title: '', description: '', dueDate: ''});
 
 		// this.props.AddTodo(this.state.description),
 		// 	this.setState({ description: '' });
@@ -32,7 +35,7 @@ class AddTodo extends Component {
 						<h2 className='ui image header'>
 							<div className='content'>Add Item</div>
 						</h2>
-						<form className='ui large form' onSubmit={this.onSubmit}>
+						<form className='ui large form' onSubmit={this.props.onSubmit}>
 							<div className='ui stacked secondary segment'>
 								<div className='field'>
 									<div className='ui left icon input'>
@@ -53,7 +56,7 @@ class AddTodo extends Component {
 											type='text'
 											name='description'
 											placeholder='Enter Description'
-											value={this.state.description}
+											value={this.state.edescription}
 											onChange={this.onChange}
 										/>
 									</div>
@@ -63,7 +66,7 @@ class AddTodo extends Component {
 										<i className='calendar alternate outline icon'></i>
 										<input
 											type='date'
-											name='date'
+											name='dueDate'
 											placeholder='Enter Date'
 											value={this.state.dueDate}
 											onChange={this.onChange}
@@ -80,6 +83,6 @@ class AddTodo extends Component {
 	}
 }
 AddTodo.propTypes = {
-	AddTodo: PropTypes.func.isRequired,
+	addTodo: PropTypes.func.isRequired,
 };
 export default AddTodo;
