@@ -8,14 +8,14 @@ module.exports = (app) => {
 
 // Routes to todos
 
-app.get('/api/trollos', passport.authenticate('jwt', {session: false}), (req, res) => {
-    console.log(req.user)
-    res.json(req.user.todos)
-    // User.find({'todos': {inProgress: 'true'}})
-    //     .sort({date: -1})
-    //     .then((todos) => res.json(todos))
-    //     .catch((err) => res.status(422).json(err));
-});
+// app.get('/api/todo', passport.authenticate('jwt', {session: false}), (req, res) => {
+//     console.log(req.user)
+//     res.json(req.user.todos)
+//     // User.find({'todos': {inProgress: 'true'}})
+//     //     .sort({date: -1})
+//     //     .then((todos) => res.json(todos))
+//     //     .catch((err) => res.status(422).json(err));
+// });
 
 // app.get('/api/inprogress', (req, res) => {
 //     Trollo.find({inProgress: 'true'})

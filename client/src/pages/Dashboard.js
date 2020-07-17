@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import Accordion from '../components/Accordion'
 import Todos from '../components/Todos'
 import JumbotronTitle from '../components/JumbotronTitle';
 import Biocard from '../components/Biocard';
@@ -13,15 +12,10 @@ class Dashboard extends Component {
 		todos: []
 	};
 
+
 	componentDidMount() {
-		axios.get('/api/trollos')
-		.then(response => {
-            this.setState({
-                todos: response.data.todos
-            })
-			 console.log(response);
-		})
-		.catch(err => console.log(err.response));
+		axios.get('/api/user')
+		.then(res => this.setState({ todos: res.data.todos}));
         }
         
 
@@ -39,9 +33,9 @@ class Dashboard extends Component {
 						</Col>
 					</Row>
 				</Container>
-				<Accordion>
-					<Todos />
-				</Accordion>
+					<Todos
+						todos={this.state.todos}
+					/>
 			</div>
 		);
 	}
