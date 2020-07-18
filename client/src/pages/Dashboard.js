@@ -67,9 +67,7 @@ class Dashboard extends Component {
 						<Col md={8}>
 							<div className='ui middle aligned center aligned grid'>
 								<div className='column'>
-									<h2 className='ui image header'>
-										<div className='content'>Add Item</div>
-									</h2>
+
 									<form className='ui large form' onSubmit={this.onSubmit}>
 										<div className='ui stacked secondary segment'>
 											<div className='field'>
