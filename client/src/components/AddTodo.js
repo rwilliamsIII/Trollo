@@ -5,12 +5,10 @@ class AddTodo extends Component {
 	state = {
 		redirect: false,
 		newTodo: {
-		title: '',
-		description: '',
-		dueDate: '',
-		}
-		
-
+			title: '',
+			description: '',
+			dueDate: '',
+		},
 	};
 
 	onChange = (e) =>
@@ -19,10 +17,10 @@ class AddTodo extends Component {
 		});
 
 	onSubmit = (e) => {
-		const { title, description, dueDate } = this.state
+		const { title, description, dueDate } = this.state;
 		e.preventDefault();
-		this.props.addTodo({title, description, dueDate});
-		this.setState({title: '', description: '', dueDate: ''});
+		this.props.addTodo({ title, description, dueDate });
+		this.setState({ title: '', description: '', dueDate: '' });
 
 		// this.props.AddTodo(this.state.description),
 		// 	this.setState({ description: '' });
@@ -35,11 +33,9 @@ class AddTodo extends Component {
 			<div>
 				<div className='ui middle aligned center aligned grid'>
 					<div className='column'>
-						<h2 className='ui image header'>
-							<div className='content'>Add Item</div>
-						</h2>
 						<form className='ui large form' onSubmit={this.onSubmit}>
 							<div className='ui stacked secondary segment'>
+								<div className='content'></div>
 								<div className='field'>
 									<div className='ui left icon input'>
 										<i className='edit outline icon'></i>

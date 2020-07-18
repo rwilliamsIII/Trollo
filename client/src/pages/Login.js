@@ -6,6 +6,13 @@ import setAuthToken from '../utils/setAuthToken';
 import { ReactComponent as Logo } from '../img/trollo-logo-01.svg';
 import { Link } from 'react-router-dom';
 
+const styles = {
+	errors: {
+		color: 'orange',
+		fontSize: '1rem',
+		margin: 0,
+	},
+};
 class Login extends Component {
 	constructor() {
 		super();
@@ -42,25 +49,26 @@ class Login extends Component {
 			password: this.state.password,
 		};
 
-		axios.post('/api/user/login', newUser).then((res) => {
-			console.log(newUser);
+		axios
+			.post('/api/user/login', newUser)
+			.then((response) => {
+				if (response.data.token) {
+					const { token } = response.data;
+					// save token to local storage
+					localStorage.setItem('trollo', token);
+					setAuthToken(token);
 
-			if (res.data.token) {
-				const { token } = res.data;
-				// save token to local storage
-				localStorage.setItem('trollo', token);
-				setAuthToken(token);
-
+					this.setState({
+						redirect: true,
+						errors: {},
+					});
+				}
+			})
+			.catch((errors) => {
 				this.setState({
-					redirect: true,
-					// 	errors: {},
+					errors: errors.response.data,
 				});
-			}
-			//console.log(res.data);
-		});
-		// .catch((err) => console.log(err.response.data));
-		// this.state({
-		// errors: err.response.data;
+			});
 	};
 
 	render() {
@@ -90,6 +98,9 @@ class Login extends Component {
 											onChange={this.onChange}
 											g
 										/>
+										{errors.user && (
+											<div styles={styles.errors}>{errors.user}</div>
+										)}
 									</div>
 								</div>
 								<div className='field'>
@@ -102,6 +113,9 @@ class Login extends Component {
 											value={this.state.password}
 											onChange={this.onChange}
 										/>
+										{errors.password && (
+											<div styles={styles.errors}>{errors.password}</div>
+										)}
 									</div>
 								</div>
 								<input type='submit' className='ui fluid large olive button' />
