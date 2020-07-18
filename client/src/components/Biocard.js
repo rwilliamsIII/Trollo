@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Profile from '../components/Profile';
-import LogoutBtn from '../components/LogoutBtn';
 import Axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 
@@ -11,7 +10,6 @@ class Biocard extends Component {
 	};
 
 	componentDidMount() {
-		console.log(this.state);
 		const token = localStorage.getItem('trollo');
 
 		if (token) {
@@ -21,7 +19,6 @@ class Biocard extends Component {
 		Axios.get('/api/user')
 			.then((res) => {
 				const user = res.data;
-				console.log(user);
 				this.setState({
 					user: res.data,
 				});
