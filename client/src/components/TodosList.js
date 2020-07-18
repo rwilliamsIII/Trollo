@@ -15,10 +15,9 @@ export class TodosList extends Component {
         return (
             <Accordion>
                 <Card>
-                    <Card.Header>
-                        <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                            {title}
-                        </Accordion.Toggle>
+                    <Card.Header >
+                        <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "black" }}>
+                            <b>{title} </b>                        </Accordion.Toggle>
                     </Card.Header>
                     <Accordion.Collapse eventKey="0">
                         <Card.Body>
