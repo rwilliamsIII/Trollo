@@ -36,7 +36,7 @@ class Dashboard extends Component {
 		});
 
 	onSubmit = (e) => {
-		// e.preventDefault();
+
 		const newTodo = {
 			title: this.state.title,
 			description: this.state.description,
