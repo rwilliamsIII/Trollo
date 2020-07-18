@@ -30,14 +30,14 @@ class Profile extends Component {
 						<div className='ui card'>
 							<Logo />
 							<div className='content'>
-								<div class='center aligned header'>{user.name}</div>
+								<div className='center aligned header'>{user.name}</div>
 
-								<div class='center aligned description'></div>
+								<div className='center aligned description'></div>
 							</div>
 
-							<div class='extra content'>
-								<div class='center aligned author'>
-									<i class='user icon'></i>
+							<div className='extra content'>
+								<div className='center aligned author'>
+									<i className='user icon'></i>
 
 									<p>{user.email}</p>
 								</div>

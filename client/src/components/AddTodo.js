@@ -72,8 +72,8 @@ class AddTodo extends Component {
 										/>
 									</div>
 								</div>
+								<input type='submit' className='ui fluid large olive button' />
 							</div>
-							<input type='submit' className='ui fluid large olive button' />
 						</form>
 					</div>
 				</div>
