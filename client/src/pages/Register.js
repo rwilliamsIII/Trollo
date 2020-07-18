@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import authenticate from '../utils/Authenticate';
-import setAuthToken from '../utils/setAuthToken';
+import { ReactComponent as Logo } from '../img/trollo-logo-01.svg';
+import { Link } from 'react-router-dom';
 
 class Register extends Component {
 	constructor() {
@@ -72,12 +73,11 @@ class Register extends Component {
 		}
 		return (
 			<div>
-				<BackgroundImg className='background' />
-				<Logo />
 				<div className='ui middle aligned center aligned grid'>
 					<div className='column'>
+						<Logo />
 						<h2 className='ui image header'>
-							<div className='content'>Log-in to your account</div>
+							<div className='content'>Account Sign Up</div>
 						</h2>
 						<form className='ui large form' onSubmit={this.onSubmit}>
 							<div className='ui stacked secondary  segment'>
@@ -87,7 +87,7 @@ class Register extends Component {
 										<input
 											type='name'
 											name='name'
-											placeholder='Email address'
+											placeholder='Enter Name'
 											value={this.state.name}
 											onChange={this.onChange}
 										/>
@@ -120,6 +120,9 @@ class Register extends Component {
 								<input type='submit' className='ui fluid large olive button' />
 							</div>
 						</form>
+						<div class='ui olive message'>
+							<Link to='/'>Return to Login!</Link>
+						</div>
 					</div>
 				</div>
 			</div>

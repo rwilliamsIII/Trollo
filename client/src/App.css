@@ -4,9 +4,11 @@
 	font-family: 'Roboto', sans-serif;
 }
 body {
-	background-color: #3d6ea7;
-	color: #585858;
+	background-color: #3e5c83;
+	background-repeat: repeat;
+	background-image: url(./img/floating-cogs-2.svg);
 }
+
 a:link {
 	color: #32cd32;
 }
@@ -38,9 +40,4 @@ body > .grid {
 }
 .column {
 	max-width: 700px;
-}
-.jumbotron {
-	backgroundrepeat: repeat;
-	color: #517aac;
-	backgroundsize: cover;
 }

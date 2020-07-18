@@ -3,8 +3,8 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import authenticate from '../utils/Authenticate';
 import setAuthToken from '../utils/setAuthToken';
-import { ReactComponent as BackgroundImg } from '../img/floating-cogs-2.svg';
 import { ReactComponent as Logo } from '../img/trollo-logo-01.svg';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
 	constructor() {
@@ -71,12 +71,11 @@ class Login extends Component {
 		}
 		return (
 			<div>
-				<BackgroundImg className='background' />
-				<Logo />
 				<div className='ui middle aligned center aligned grid'>
 					<div className='column'>
+						<Logo />
 						<h2 className='ui image header'>
-							<div className='content'>Log-in to your account</div>
+							<div className='content'>Account Login</div>
 						</h2>
 						<form className='ui large form' onSubmit={this.onSubmit}>
 							<div className='ui stacked secondary  segment'>
@@ -108,8 +107,8 @@ class Login extends Component {
 								<input type='submit' className='ui fluid large olive button' />
 							</div>
 						</form>
-						<div className='ui message'>
-							<div>Give us a try and sign up!</div>
+						<div class='ui olive message'>
+							<Link to='/register'>Not a user, sign up!</Link>
 						</div>
 					</div>
 				</div>
