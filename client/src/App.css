@@ -27,10 +27,12 @@ a:active {
 }
 
 .App {
-	text-align: center;
+	
+text-align: center;
 	background-image: url("./img/floating-cogs-2.svg");
 	background-size: auto;
 	background-repeat: repeat;
+
 }
 
 body > .grid {
