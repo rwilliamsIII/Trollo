@@ -72,7 +72,6 @@ class Login extends Component {
 		return (
 			<div>
 
-				{/* Gears Background Image */}
 				{/* <div>
 					<BackgroundImg className='loginImage' />
 				</div> */}
