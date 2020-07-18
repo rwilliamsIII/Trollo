@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 // Define Routes
 require('./routes/api/user')(app);
-//require('./routes/api-routes')(app);
+require('./routes/api-routes')(app);
 // require("./routes/html-routes.js")(app);
 
 app.listen(PORT, function () {
