@@ -4,9 +4,12 @@ import PropTypes from 'prop-types';
 class AddTodo extends Component {
 	state = {
 		redirect: false,
+		newTodo: {
 		title: '',
 		description: '',
 		dueDate: '',
+		}
+		
 
 	};
 
@@ -35,7 +38,7 @@ class AddTodo extends Component {
 						<h2 className='ui image header'>
 							<div className='content'>Add Item</div>
 						</h2>
-						<form className='ui large form' onSubmit={this.props.onSubmit}>
+						<form className='ui large form' onSubmit={this.onSubmit}>
 							<div className='ui stacked secondary segment'>
 								<div className='field'>
 									<div className='ui left icon input'>
