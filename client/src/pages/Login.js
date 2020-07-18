@@ -71,8 +71,17 @@ class Login extends Component {
 		}
 		return (
 			<div>
-				<BackgroundImg className='background' />
-				<Logo />
+
+				{/* Gears Background Image */}
+				{/* <div>
+					<BackgroundImg className='loginImage' />
+				</div> */}
+
+				{/* Trollo Logo */}
+				<div>
+					<Logo />
+				</div>
+
 				<div className='ui middle aligned center aligned grid'>
 					<div className='column'>
 						<h2 className='ui image header'>

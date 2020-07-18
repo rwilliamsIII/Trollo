@@ -28,7 +28,11 @@ a:active {
 
 .App {
 	text-align: center;
+	background-image: url("./img/floating-cogs-2.svg");
+	background-size: auto;
+	background-repeat: repeat;
 }
+
 body > .grid {
 	height: 150%;
 	background-color: #2a4a70;
@@ -39,8 +43,9 @@ body > .grid {
 .column {
 	max-width: 700px;
 }
-.jumbotron {
+/* .jumbotron {
 	backgroundrepeat: repeat;
 	color: #517aac;
 	backgroundsize: cover;
-}
+} */
+

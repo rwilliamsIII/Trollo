@@ -72,8 +72,8 @@ class Register extends Component {
 		}
 		return (
 			<div>
-				<BackgroundImg className='background' />
-				<Logo />
+				{/* <BackgroundImg className='background' /> */}
+				{/* <Logo /> */}
 				<div className='ui middle aligned center aligned grid'>
 					<div className='column'>
 						<h2 className='ui image header'>
