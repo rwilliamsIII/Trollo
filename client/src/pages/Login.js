@@ -42,25 +42,23 @@ class Login extends Component {
 			password: this.state.password,
 		};
 
-		axios
-			.post('/api/user/login', newUser)
-			.then((res) => {
-				console.log(newUser);
+		axios.post('/api/user/login', newUser).then((res) => {
+			console.log(newUser);
 
-				if (res.data.token) {
-					const { token } = res.data;
-					// save token to local storage
-					localStorage.setItem('trollo', token);
-					setAuthToken(token);
+			if (res.data.token) {
+				const { token } = res.data;
+				// save token to local storage
+				localStorage.setItem('trollo', token);
+				setAuthToken(token);
 
-					this.setState({
-						redirect: true,
-						// 	errors: {},
-					});
-				}
-				//console.log(res.data);
-			})
-			// .catch((err) => console.log(err.response.data));
+				this.setState({
+					redirect: true,
+					// 	errors: {},
+				});
+			}
+			//console.log(res.data);
+		});
+		// .catch((err) => console.log(err.response.data));
 		// this.state({
 		// errors: err.response.data;
 	};
@@ -73,7 +71,7 @@ class Login extends Component {
 		}
 		return (
 			<div>
-				<BackgroundImg className='jumbotron' />
+				<BackgroundImg className='background' />
 				<Logo />
 				<div className='ui middle aligned center aligned grid'>
 					<div className='column'>
@@ -91,6 +89,7 @@ class Login extends Component {
 											placeholder='Email address'
 											value={this.state.email}
 											onChange={this.onChange}
+											g
 										/>
 									</div>
 								</div>
