@@ -32,17 +32,17 @@ class Profile extends Component {
 							<div className='content'>
 								<div class='center aligned header'>{user.name}</div>
 
-								<div class='center aligned description'>
-									<p>JeLorem ipsum dolor sit amet, et amet facilis pro.</p>
-								</div>
+								<div class='center aligned description'></div>
 							</div>
-							<LogoutBtn />
+
 							<div class='extra content'>
 								<div class='center aligned author'>
 									<i class='user icon'></i>
 
 									<p>{user.email}</p>
 								</div>
+								<br></br>
+								<LogoutBtn />
 							</div>
 						</div>
 					</div>
