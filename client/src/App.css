@@ -28,7 +28,7 @@ a:active {
 }
 
 .App {
-	text-align: center;
+	text-align: left;
 }
 body > .grid {
 	height: 150%;

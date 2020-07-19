@@ -40,7 +40,11 @@ class LogoutBtn extends Component {
 		}
 		return (
 			<div>
-				<div className='ui olive button' onClick={this.handleLogout}>
+				<div
+					style={{ display: 'flex' }}
+					className='fluid ui olive button'
+					onClick={this.handleLogout}
+				>
 					Logout!
 				</div>
 			</div>

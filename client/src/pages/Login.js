@@ -79,7 +79,10 @@ class Login extends Component {
 		}
 		return (
 			<div>
-				<div className='ui middle aligned center aligned grid'>
+				<div
+					className='ui middle aligned center aligned grid'
+					style={{ display: 'flex' }}
+				>
 					<div className='column'>
 						<Logo />
 						<h2 className='ui image header'>

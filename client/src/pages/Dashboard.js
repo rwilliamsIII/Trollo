@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 // import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import Todos from '../components/Todos'
+import Todos from '../components/Todos';
 // import JumbotronTitle from '../components/JumbotronTitle';
 import Biocard from '../components/Biocard';
 // import AddTodo from '../components/AddTodo';
 import { Container, Row, Col } from 'react-grid-system';
-
 
 class Dashboard extends Component {
 	state = {
@@ -14,15 +13,15 @@ class Dashboard extends Component {
 		todos: [],
 		title: '',
 		description: '',
-		dueDate: ''
+		dueDate: '',
 	};
 
-
 	componentDidMount() {
-		axios.get('/api/user')
-		.then(res => this.setState({ todos: res.data.todos }));
+		axios
+			.get('/api/user')
+			.then((res) => this.setState({ todos: res.data.todos }));
 	}
-		
+
 	onChange = (e) =>
 		this.setState({
 			[e.target.name]: e.target.value,
@@ -32,13 +31,20 @@ class Dashboard extends Component {
 		const newTodo = {
 			title: this.state.title,
 			description: this.state.description,
-			dueDate: this.state.dueDate
+			dueDate: this.state.dueDate,
 		};
+
 		axios.post('/api/trollos', newTodo)
 		.then((res) => {
 			this.setState({title: '', description: '', dueDate: ''});
 		})
 	};
+
+		axios.post('/api/trollos', newTodo).then((res) => {
+			this.setState({ title: '', description: '', dueDate: '' });
+		});
+
+
 
 	toggleComplete = id => {
 		this.setState({
@@ -51,12 +57,14 @@ class Dashboard extends Component {
 		})
 	};
 
+
 	// deleteTodo = id => {
 	// 	this.setState({
 	// 		todos: this.state.todos.filter()
 	// 	})
 	// }
         
+
 
 	render() {
 		return (
@@ -68,6 +76,7 @@ class Dashboard extends Component {
 						</Col>
 
 						<Col md={8}>
+
 						<div className='ui middle aligned center aligned grid'>
 					<div className='column'>
 						<form className='ui large form' onSubmit={this.onSubmit}>
@@ -100,27 +109,22 @@ class Dashboard extends Component {
 									<div className='ui left icon input'>
 										<i className='calendar alternate outline icon'></i>
 										<input
-											type='date'
-											name='dueDate'
-											placeholder='Enter Date'
-											value={this.state.dueDate}
-											onChange={this.onChange}
+											type='submit'
+											className='ui fluid large olive button'
 										/>
-									</div>
+									</form>
 								</div>
 							</div>
-							<input type='submit' className='ui fluid large olive button' />
-						</form>
-					</div>
-				</div>
 						</Col>
 					</Row>
 				</Container>
+
 					<Todos
 						todos={this.state.todos}
 						toggleComplete={this.toggleComplete}
 						deleteTodo={this.deleteTodo}
 					/>
+
 			</div>
 		);
 	}
