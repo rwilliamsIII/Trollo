@@ -7,35 +7,38 @@ export class TodosList extends Component {
 		console.log(this.props.todo);
 	};
 
-	// status () => {
-	//     if
-	// }
 
-	render() {
-		const { title, description, dueDate } = this.props.todo;
-		return (
-			<Accordion>
-				<Card>
-					<Card.Header>
-						<Accordion.Toggle as={Button} variant='link' eventKey='0'>
-							{title}
-						</Accordion.Toggle>
-					</Card.Header>
-					<Accordion.Collapse eventKey='0'>
-						<Card.Body>
-							{description}
-							<br></br>
-							{dueDate}
-						</Card.Body>
-					</Accordion.Collapse>
-				</Card>
-			</Accordion>
-		);
-	}
-}
+render(){
+    const { title, description, dueDate } = this.props.todo;
+        return (
+        <Accordion>
+            <Card>
+                <Card.Header>
+                    <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                        { title }
+                    </Accordion.Toggle>
+                </Card.Header>
+                <Accordion.Collapse eventKey="0">
+                    <Card.Body>
+                        { description }
+                          <br></br>
+							            {dueDate}
+                        <Button onChange={this.props.toggleComplete.bind(this,id)}><i className="upload icon"></i></Button>
+                        <Button onChange={this.props.deleteTodo.bind(this, id)}><i class="trash alternate icon"></i></Button>
+                    </Card.Body>
+                </Accordion.Collapse>
+            </Card>
+        </Accordion>
+        )
+
+	
 
 TodosList.protoTypes = {
-	todo: PropTypes.object.isRequired,
-};
+
+    todo: PropTypes.object.isRequired,
+    toggleComplete: PropTypes.func.isRequired,
+    deleteTodo: PropTypes.func.isRequired
+}
+
 
 export default TodosList;

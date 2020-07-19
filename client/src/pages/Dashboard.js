@@ -22,33 +22,49 @@ class Dashboard extends Component {
 			.then((res) => this.setState({ todos: res.data.todos }));
 	}
 
-	// addTodo = newTodo => {
-	// 	axios.post('/api/trollos', {
-	// 		newTodo
-	// 	}).then(res => this.setState({todos: [...this.state.todos, res.data]}))
-
-	// };
 	onChange = (e) =>
 		this.setState({
 			[e.target.name]: e.target.value,
 		});
 
 	onSubmit = (e) => {
-		//e.preventDefault();
 		const newTodo = {
 			title: this.state.title,
 			description: this.state.description,
 			dueDate: this.state.dueDate,
 		};
+
+		axios.post('/api/trollos', newTodo)
+		.then((res) => {
+			this.setState({title: '', description: '', dueDate: ''});
+		})
+	};
+
 		axios.post('/api/trollos', newTodo).then((res) => {
 			this.setState({ title: '', description: '', dueDate: '' });
 		});
 
-		// this.props.AddTodo(this.state.description),
-		// 	this.setState({ description: '' });
 
-		// this.props.AddTodo(this.state.dueDate), this.setState({ dueDate: '' });
+
+	toggleComplete = id => {
+		this.setState({
+			todos: this.state.todos.map(todo => {
+				if (todo.id === id) {
+					todo.completed = !todo.completed
+				}
+				return todo;
+			})
+		})
 	};
+
+
+	// deleteTodo = id => {
+	// 	this.setState({
+	// 		todos: this.state.todos.filter()
+	// 	})
+	// }
+        
+
 
 	render() {
 		return (
@@ -60,47 +76,38 @@ class Dashboard extends Component {
 						</Col>
 
 						<Col md={8}>
-							<div className='ui middle aligned center aligned grid'>
-								<div className='column'>
-									<form className='ui large form' onSubmit={this.onSubmit}>
-										<div className='ui stacked secondary segment'>
-											<div className='field'>
-												<div className='ui left icon input'>
-													<i className='edit outline icon'></i>
-													<input
-														type='text'
-														name='title'
-														placeholder='Item Title'
-														value={this.state.title}
-														onChange={this.onChange}
-													/>
-												</div>
-											</div>
-											<div className='field'>
-												<div className='ui left icon input'>
-													<i className='edit outline icon'></i>
-													<input
-														type='text'
-														name='description'
-														placeholder='Enter Description'
-														value={this.state.edescription}
-														onChange={this.onChange}
-													/>
-												</div>
-											</div>
-											<div className='field'>
-												<div className='ui left icon input'>
-													<i className='calendar alternate outline icon'></i>
-													<input
-														type='date'
-														name='dueDate'
-														placeholder='Enter Date'
-														value={this.state.dueDate}
-														onChange={this.onChange}
-													/>
-												</div>
-											</div>
-										</div>
+
+						<div className='ui middle aligned center aligned grid'>
+					<div className='column'>
+						<form className='ui large form' onSubmit={this.onSubmit}>
+							<div className='ui stacked secondary segment'>
+								<div className='field'>
+									<div className='ui left icon input'>
+										<i className='edit outline icon'></i>
+										<input
+											type='text'
+											name='title'
+											placeholder='Item Title'
+											value={this.state.title}
+											onChange={this.onChange}
+										/>
+									</div>
+								</div>
+								<div className='field'>
+									<div className='ui left icon input'>
+										<i className='edit outline icon'></i>
+										<input
+											type='text'
+											name='description'
+											placeholder='Enter Description'
+											value={this.state.description}
+											onChange={this.onChange}
+										/>
+									</div>
+								</div>
+								<div className='field'>
+									<div className='ui left icon input'>
+										<i className='calendar alternate outline icon'></i>
 										<input
 											type='submit'
 											className='ui fluid large olive button'
@@ -111,7 +118,13 @@ class Dashboard extends Component {
 						</Col>
 					</Row>
 				</Container>
-				<Todos todos={this.state.todos} />
+
+					<Todos
+						todos={this.state.todos}
+						toggleComplete={this.toggleComplete}
+						deleteTodo={this.deleteTodo}
+					/>
+
 			</div>
 		);
 	}

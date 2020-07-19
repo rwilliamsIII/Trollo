@@ -2,7 +2,7 @@
 module.exports = (app) => {
     const User = require('../models/User');
     const passport = require('passport');
-
+    import { v4 as uuidv4 } from 'uuid';
 // Routes
 
 
@@ -34,6 +34,7 @@ module.exports = (app) => {
 app.post('/api/trollos', passport.authenticate('jwt', {session: false}),  (req, res) => {
     console.log(req.user);
     User.updateOne({_id: req.user._id}, {$push: {todos: {
+    todoId: uuidv4(),
     title: req.body.title,
 	description: req.body.description,
 	dueDate: req.body.dueDate,
