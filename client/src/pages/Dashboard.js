@@ -40,9 +40,7 @@ class Dashboard extends Component {
 		})
 	};
 
-		axios.post('/api/trollos', newTodo).then((res) => {
-			this.setState({ title: '', description: '', dueDate: '' });
-		});
+
 
 
 
@@ -77,10 +75,12 @@ class Dashboard extends Component {
 
 						<Col md={8}>
 
-						<div className='ui middle aligned center aligned grid'>
+						<div>
+				<div className='ui middle aligned center aligned grid'>
 					<div className='column'>
 						<form className='ui large form' onSubmit={this.onSubmit}>
 							<div className='ui stacked secondary segment'>
+								<div className='content'></div>
 								<div className='field'>
 									<div className='ui left icon input'>
 										<i className='edit outline icon'></i>
@@ -100,7 +100,7 @@ class Dashboard extends Component {
 											type='text'
 											name='description'
 											placeholder='Enter Description'
-											value={this.state.description}
+											value={this.state.edescription}
 											onChange={this.onChange}
 										/>
 									</div>
@@ -109,23 +109,30 @@ class Dashboard extends Component {
 									<div className='ui left icon input'>
 										<i className='calendar alternate outline icon'></i>
 										<input
-											type='submit'
-											className='ui fluid large olive button'
+											type='date'
+											name='dueDate'
+											placeholder='Enter Date'
+											value={this.state.dueDate}
+											onChange={this.onChange}
 										/>
-									</form>
+									</div>
 								</div>
+								<input type='submit' className='ui fluid large olive button' />
 							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 						</Col>
 					</Row>
 				</Container>
-
 					<Todos
 						todos={this.state.todos}
 						toggleComplete={this.toggleComplete}
 						deleteTodo={this.deleteTodo}
 					/>
-
-			</div>
+				</div>
+			
 		);
 	}
 }

@@ -29,9 +29,9 @@ render(){
                 </Accordion.Collapse>
             </Card>
         </Accordion>
-        )
-
-	
+                )
+        }
+}
 
 TodosList.protoTypes = {
 
