@@ -18,7 +18,8 @@
 		"passport-jwt": "^4.0.0",
 		"path": "^0.12.7",
 		"react-bootstrap": "^1.2.1",
-		"request": "^2.88.2"
+		"request": "^2.88.2",
+		"uuid": "^8.2.0"
 	},
 	"devDependencies": {
 		"concurrently": "^5.2.0",
