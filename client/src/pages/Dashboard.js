@@ -23,20 +23,12 @@ class Dashboard extends Component {
 		.then(res => this.setState({ todos: res.data.todos }));
 	}
 		
-
-	// addTodo = newTodo => {
-	// 	axios.post('/api/trollos', {
-	// 		newTodo
-	// 	}).then(res => this.setState({todos: [...this.state.todos, res.data]}))
-	
-	// };
 	onChange = (e) =>
 		this.setState({
 			[e.target.name]: e.target.value,
 		});
 
 	onSubmit = (e) => {
-		// e.preventDefault();
 		const newTodo = {
 			title: this.state.title,
 			description: this.state.description,
@@ -46,13 +38,24 @@ class Dashboard extends Component {
 		.then((res) => {
 			this.setState({title: '', description: '', dueDate: ''});
 		})
-		
-
-		// this.props.AddTodo(this.state.description),
-		// 	this.setState({ description: '' });
-
-		// this.props.AddTodo(this.state.dueDate), this.setState({ dueDate: '' });
 	};
+
+	toggleComplete = id => {
+		this.setState({
+			todos: this.state.todos.map(todo => {
+				if (todo.id === id) {
+					todo.completed = !todo.completed
+				}
+				return todo;
+			})
+		})
+	};
+
+	// deleteTodo = id => {
+	// 	this.setState({
+	// 		todos: this.state.todos.filter()
+	// 	})
+	// }
         
 
 	render() {
@@ -115,6 +118,8 @@ class Dashboard extends Component {
 				</Container>
 					<Todos
 						todos={this.state.todos}
+						toggleComplete={this.toggleComplete}
+						deleteTodo={this.deleteTodo}
 					/>
 			</div>
 		);

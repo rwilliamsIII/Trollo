@@ -23,6 +23,8 @@ render(){
                 <Accordion.Collapse eventKey="0">
                     <Card.Body>
                         { description }
+                        <Button onChange={this.props.toggleComplete.bind(this,id)}><i className="upload icon"></i></Button>
+                        <Button onChange={this.props.deleteTodo.bind(this, id)}><i class="trash alternate icon"></i></Button>
                     </Card.Body>
                 </Accordion.Collapse>
             </Card>
@@ -35,6 +37,8 @@ render(){
 
 TodosList.protoTypes = {
     todo: PropTypes.object.isRequired,
+    toggleComplete: PropTypes.func.isRequired,
+    deleteTodo: PropTypes.func.isRequired
 }
 
 export default TodosList;
