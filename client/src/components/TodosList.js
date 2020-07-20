@@ -22,9 +22,8 @@ render(){
                     <Card.Body>
                         { description }
                           <br></br>
-							            {dueDate}
-                        <Button onChange={this.props.toggleComplete.bind(this,id)}><i className="upload icon"></i></Button>
-                        <Button onChange={this.props.deleteTodo.bind(this, id)}><i class="trash alternate icon"></i></Button>
+						{dueDate}
+                        <Button onClick={this.props.toggleComplete.bind(this, title)}><i class="check icon"></i></Button>
                     </Card.Body>
                 </Accordion.Collapse>
             </Card>

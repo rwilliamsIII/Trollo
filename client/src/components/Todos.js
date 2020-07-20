@@ -9,14 +9,15 @@ class Todos extends Component {
     render(){
         return(
             this.props.todos.map((todo) => (
-                <TodosList key={todo.id} todo={todo} />
+                <TodosList key={todo.id} todo={todo} toggleComplete={this.props.toggleComplete} />
             ))
         )
     }
 }
 
 TodosList.propTypes = {
-    todos: PropTypes.array.isRequired
+    todos: PropTypes.array.isRequired,
+    toggleComplete: PropTypes.func.isRequired
 }
 
 export default Todos;

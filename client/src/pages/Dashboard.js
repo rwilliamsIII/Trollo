@@ -7,6 +7,7 @@ import Biocard from '../components/Biocard';
 // import AddTodo from '../components/AddTodo';
 import { Container, Row, Col } from 'react-grid-system';
 
+
 class Dashboard extends Component {
 	state = {
 		redirect: false,
@@ -44,10 +45,11 @@ class Dashboard extends Component {
 
 
 
-	toggleComplete = id => {
+	toggleComplete = title => {
+		console.log(title)
 		this.setState({
 			todos: this.state.todos.map(todo => {
-				if (todo.id === id) {
+				if (todo.title === title) {
 					todo.completed = !todo.completed
 				}
 				return todo;
@@ -100,7 +102,7 @@ class Dashboard extends Component {
 											type='text'
 											name='description'
 											placeholder='Enter Description'
-											value={this.state.edescription}
+											value={this.state.description}
 											onChange={this.onChange}
 										/>
 									</div>
