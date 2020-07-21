@@ -11,10 +11,12 @@ export class TodosList extends Component {
 render(){
     const { title, description, dueDate } = this.props.todo;
         return (
+
+    <div className='container mt-3'>
         <Accordion>
             <Card>
                 <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                    <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "black" }}>
                         { title }
                     </Accordion.Toggle>
                 </Card.Header>
@@ -28,6 +30,7 @@ render(){
                 </Accordion.Collapse>
             </Card>
         </Accordion>
+    </div>
                 )
         }
 }
