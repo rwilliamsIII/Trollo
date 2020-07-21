@@ -69,6 +69,7 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<div className='Dashboard'>
+				<br></br>
 				<Container>
 					<Row>
 						<Col md={4}>
@@ -127,12 +128,19 @@ class Dashboard extends Component {
 			</div>
 						</Col>
 					</Row>
-				</Container>
+					<br></br>
+					<br></br>
+				<Row>
+					<Col md={4}>
 					<Todos
 						todos={this.state.todos}
 						toggleComplete={this.toggleComplete}
 						deleteTodo={this.deleteTodo}
 					/>
+					</Col>
+				</Row>
+				</Container>
+					
 				</div>
 			
 		);

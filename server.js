@@ -31,11 +31,12 @@ mongoose.connect(
 if (process.env.NODE_ENV === 'production') {
 	// Set static folder
 	app.use(express.static('client/build'));
-	app.get('*', (req, res) => {
-		res.sendFile(path.join(__dirname, './client/public/index.html'));
-	});
+	
 }
 // Define Routes
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, './client/public/index.html'));
+});
 require('./routes/api/user')(app);
 require('./routes/api-routes')(app);
 // require("./routes/html-routes.js")(app);

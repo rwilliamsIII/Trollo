@@ -12,8 +12,8 @@ render(){
     const { title, description, dueDate } = this.props.todo;
         return (
 
-    <div className='container mt-3'>
-        <Accordion>
+    <div className='container mt-2'>
+        <Accordion style={{width: '400px'}}>
             <Card>
                 <Card.Header>
                     <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "black" }}>
