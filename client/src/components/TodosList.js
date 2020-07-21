@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import { Accordion, Card, Button } from 'react-bootstrap';
 
 export class TodosList extends Component {
-	componentDidMount = (props) => {
-		console.log(this.props.todo);
-	};
+    componentDidMount = (props) => {
+        console.log(this.props.todo);
+    };
 
 
-render(){
-    const { title, description, dueDate } = this.props.todo;
+    render() {
+        const { title, description, dueDate } = this.props.todo;
         return (
+
 
     <div className='container mt-2'>
         <Accordion style={{width: '400px'}}>
@@ -24,7 +25,7 @@ render(){
                     <Card.Body>
                         { description }
                           <br></br>
-						{dueDate}
+						Due Date:{dueDate}
                         <Button onClick={this.props.toggleComplete.bind(this, title)}><i class="check icon"></i></Button>
                     </Card.Body>
                 </Accordion.Collapse>
@@ -33,8 +34,8 @@ render(){
     </div>
                 )
         }
-}
 
+    }
 TodosList.protoTypes = {
 
     todo: PropTypes.object.isRequired,
