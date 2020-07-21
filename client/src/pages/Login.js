@@ -66,8 +66,7 @@ class Login extends Component {
 			})
 			.catch((errors) => {
 				this.setState({
-					email: errors.response.data,
-					password: '',
+					errors: errors.response.data,
 				});
 			});
 	};
