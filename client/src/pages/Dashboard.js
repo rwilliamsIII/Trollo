@@ -6,21 +6,22 @@ import Todos from '../components/Todos';
 import Biocard from '../components/Biocard';
 // import AddTodo from '../components/AddTodo';
 import { Container, Row, Col } from 'react-grid-system';
+import { Giphy } from '../components/Giphy';
 
 
 class Dashboard extends Component {
 	state = {
 		redirect: false,
 		todos: [],
+		gifs: [],
 		title: '',
 		description: '',
 		dueDate: '',
 	};
 
 	componentDidMount() {
-		axios
-			.get('/api/user')
-			.then((res) => this.setState({ todos: res.data.todos }));
+		axios.get('/api/user').then((res) => this.setState({ todos: res.data.todos }));
+		axios.get('https://api.tenor.com/v1/search?q=excited&limit=1&api_key=WN04JBU3AGCS').then((res) => this.setState({ gifs: res.results.media }));
 	}
 
 	onChange = (e) =>
@@ -138,6 +139,11 @@ class Dashboard extends Component {
 						toggleComplete={this.toggleComplete}
 						deleteTodo={this.deleteTodo}
 					/>
+					</Col>
+					<Col md={8}>
+						<Giphy 
+							gifs={this.state.gifs}						
+						/>
 					</Col>
 				</Row>
 				</Container>
