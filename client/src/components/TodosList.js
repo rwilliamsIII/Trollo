@@ -18,15 +18,22 @@ export class TodosList extends Component {
             <Card>
                 <Card.Header>
                     <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "black" }}>
+                        <div className='font-weight-bolder'>
                         { title }
+                        </div>
                     </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="0">
                     <Card.Body>
+                        <div className='font-weight-bold'>
                         { description }
                           <br></br>
 						Due Date:{dueDate}
-                        <Button onClick={this.props.toggleComplete.bind(this, title)}><i class="check icon"></i></Button>
+                        </div>
+                        <div>
+                        <Button onClick={this.props.toggleComplete.bind(this, title)} className='ui large olive button'><i class="check icon"></i></Button>
+                        </div>
+                        
                     </Card.Body>
                 </Accordion.Collapse>
             </Card>
