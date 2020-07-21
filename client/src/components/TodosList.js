@@ -17,16 +17,18 @@ export class TodosList extends Component {
                     <Card>
                         <Card.Header>
                             <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "black" }}>
-                                {title}
+                                <div className="font-weight-bolder" >
+                                    {title}
+                                </div>
                             </Accordion.Toggle>
                         </Card.Header>
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
                                 {/* Div for font weight */}
-                                <div className="font-weight-bold">
+                                <div className="font-weight- font-weight-normal">
                                     {description}
                                     <br></br>
-                                    {dueDate}
+                                   Due Date: {dueDate}
                                 </div>
                                 {/* Div for button  */}
                                 <div>
