@@ -31,7 +31,6 @@ mongoose.connect(
 if (process.env.NODE_ENV === 'production') {
 	// Set static folder
 	app.use(express.static('client/build'));
-	
 }
 // Define Routes
 app.get('*', (req, res) => {
@@ -39,7 +38,7 @@ app.get('*', (req, res) => {
 });
 require('./routes/api/user')(app);
 require('./routes/api-routes')(app);
-// require("./routes/html-routes.js")(app);
+
 
 app.listen(PORT, function () {
 	console.log(
