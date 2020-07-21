@@ -31,9 +31,9 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"client-install": "npm install --prefix client",
 		"server": "nodemon server",
-		"start": "concurrently \"npm run server\" \"npm run client\"",
+		"start": "node server",
 		"client": "cd client && npm start",
-		
+		"dev": "concurrently \"npm run server\" \"npm run client\"",
 		"seed": "node seeders/trolloSeed.js",
 		"seed2": "node seeders/userSeed.js"
 	},
