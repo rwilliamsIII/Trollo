@@ -3,36 +3,39 @@ import PropTypes from 'prop-types';
 import { Accordion, Card, Button } from 'react-bootstrap';
 
 export class TodosList extends Component {
-	componentDidMount = (props) => {
-		console.log(this.props.todo);
-	};
+    componentDidMount = (props) => {
+        console.log(this.props.todo);
+    };
 
 
-render(){
-    const { title, description, dueDate } = this.props.todo;
+    render() {
+        const { title, description, dueDate } = this.props.todo;
         return (
 
-    <div className='container mt-3'>
-        <Accordion>
-            <Card>
-                <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "black" }}>
-                        { title }
-                    </Accordion.Toggle>
-                </Card.Header>
-                <Accordion.Collapse eventKey="0">
-                    <Card.Body>
-                        { description }
-                          <br></br>
-						{dueDate}
-                        <Button onClick={this.props.toggleComplete.bind(this, title)}><i class="check icon"></i></Button>
-                    </Card.Body>
-                </Accordion.Collapse>
-            </Card>
-        </Accordion>
-    </div>
-                )
-        }
+            <div className='container mt-3'>
+                <Accordion>
+                    <Card>
+                        <Card.Header>
+                            <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "black" }}>
+                                {title}
+                            </Accordion.Toggle>
+                        </Card.Header>
+                        <Accordion.Collapse eventKey="0">
+                            <Card.Body>
+                                {description}
+                                <br></br>
+                                {dueDate}
+                                <div>
+                                    <Button onClick={this.props.toggleComplete.bind(this, title)}><i className="check icon" ></i></Button>
+                                </div>
+
+                            </Card.Body>
+                        </Accordion.Collapse>
+                    </Card>
+                </Accordion>
+            </div>
+        )
+    }
 }
 
 TodosList.protoTypes = {
