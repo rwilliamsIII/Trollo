@@ -6,23 +6,31 @@ import Todos from '../components/Todos';
 import Biocard from '../components/Biocard';
 // import AddTodo from '../components/AddTodo';
 import { Container, Row, Col } from 'react-grid-system';
-import { Giphy } from '../components/Giphy';
+// import { Giphy } from '../components/Giphy';
 
+
+const gifCollection = {
+	excited: 'https://tenor.com/view/minion-woohoo-yeah-excited-cheer-gif-5002827',
+	productive: 'https://tenor.com/view/typing-jim-carrey-fast-busy-gif-4903969',
+	lazy: 'https://tenor.com/view/garfield-gif-10611577'
+}
 
 class Dashboard extends Component {
 	state = {
 		redirect: false,
 		todos: [],
-		gifs: [],
 		title: '',
 		description: '',
 		dueDate: '',
+		excited: true,
+		productive: false,
+		lazy: false
 	};
 
 	componentDidMount() {
 		axios.get('/api/user').then((res) => this.setState({ todos: res.data.todos }));
-		axios.get('https://api.tenor.com/v1/search?q=excited&limit=1&api_key=WN04JBU3AGCS').then((res) => this.setState({ gifs: res.results.media }));
 	}
+
 
 	onChange = (e) =>
 		this.setState({
@@ -141,9 +149,13 @@ class Dashboard extends Component {
 					/>
 					</Col>
 					<Col md={8}>
-						<Giphy 
-							gifs={this.state.gifs}						
-						/>
+						<div className='container'>
+                    		<h2>How are ya feeling today?</h2>
+                    			<img class="ui medium rounded image" src={gifCollection[gifName]} alt='Trollo Gif' style={{height: '400px', width: '400px'}}/>
+                    			<button className='ui large olive button'>Productive</button>
+                    			<button className='ui large olive button'>Excited</button>
+                    			<button className='ui large olive button'>Lazy</button>
+                		</div>
 					</Col>
 				</Row>
 				</Container>
