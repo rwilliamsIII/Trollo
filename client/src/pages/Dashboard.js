@@ -39,17 +39,17 @@ class Dashboard extends Component {
 		});
 	};
 
-	toggleComplete = (title) => {
-		console.log(title);
-		this.setState({
-			todos: this.state.todos.map((todo) => {
-				if (todo.title === title) {
-					todo.completed = todo.completed;
-					console.log(title);
-				}
-				return todo;
-			}),
-		});
+	toggleComplete = (_id) => {
+		console.log(_id);
+		// this.setState({
+		// 	todos: this.state.todos.map((todo) => {
+		// 		if (todo.title === title) {
+		// 			todo.completed = todo.completed;
+		// 			console.log(title);
+		// 		}
+		// 		return todo;
+		// 	}),
+		// });
 	};
 
 	render() {
@@ -120,7 +120,7 @@ class Dashboard extends Component {
 					<br></br>
 					<br></br>
 					<Row>
-						<Col md={4}>
+						<Col md={12}>
 							<Todos
 								todos={this.state.todos}
 								toggleComplete={this.toggleComplete}
