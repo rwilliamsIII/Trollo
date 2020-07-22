@@ -55,11 +55,12 @@ class Dashboard extends Component {
 
 
 	toggleComplete = title => {
-		console.log(title)
+		
 		this.setState({
 			todos: this.state.todos.map(todo => {
 				if (todo.title === title) {
 					todo.completed = !todo.completed
+					console.log(title)
 				}
 				return todo;
 			})
