@@ -4,6 +4,8 @@
 <img src="public\assets\images\noemonsivaisprofilepic.png" width="100"> -->
 
 # Trollo App 
+
+
 This app will allow users manage working in a group remotely more easily.  A member of the team will be able to assign tasks to themselves or other members and label each task as "to-do," "in progress," and "completed."
 
 # Contributers
