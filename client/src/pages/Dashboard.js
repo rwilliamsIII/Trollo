@@ -7,7 +7,6 @@ import Biocard from '../components/Biocard';
 // import AddTodo from '../components/AddTodo';
 import { Container, Row, Col } from 'react-grid-system';
 
-
 class Dashboard extends Component {
 	state = {
 		redirect: false,
@@ -35,36 +34,23 @@ class Dashboard extends Component {
 			dueDate: this.state.dueDate,
 		};
 
-		axios.post('/api/trollos', newTodo)
-			.then((res) => {
-				this.setState({ title: '', description: '', dueDate: '' });
-			})
+		axios.post('/api/trollos', newTodo).then((res) => {
+			this.setState({ title: '', description: '', dueDate: '' });
+		});
 	};
 
-
-
-
-
-	toggleComplete = title => {
-		console.log(title)
+	toggleComplete = (title) => {
+		console.log(title);
 		this.setState({
-			todos: this.state.todos.map(todo => {
+			todos: this.state.todos.map((todo) => {
 				if (todo.title === title) {
-					todo.completed = !todo.completed
+					todo.completed = todo.completed;
+					console.log(title);
 				}
 				return todo;
-			})
-		})
+			}),
+		});
 	};
-
-
-	// deleteTodo = id => {
-	// 	this.setState({
-	// 		todos: this.state.todos.filter()
-	// 	})
-	// }
-
-
 
 	render() {
 		return (
@@ -77,7 +63,6 @@ class Dashboard extends Component {
 						</Col>
 
 						<Col md={8}>
-
 							<div>
 								<div className='ui middle aligned center aligned grid'>
 									<div className='column'>
@@ -120,7 +105,10 @@ class Dashboard extends Component {
 														/>
 													</div>
 												</div>
-												<input type='submit' className='ui fluid large olive button' />
+												<input
+													type='submit'
+													className='ui fluid large olive button'
+												/>
 											</div>
 										</form>
 									</div>
@@ -131,21 +119,17 @@ class Dashboard extends Component {
 
 					<br></br>
 					<br></br>
-				<Row>
-					<Col md={4}>
-					<Todos
-						todos={this.state.todos}
-						toggleComplete={this.toggleComplete}
-						deleteTodo={this.deleteTodo}
-					/>
-					</Col>
-				</Row>
+					<Row>
+						<Col md={4}>
+							<Todos
+								todos={this.state.todos}
+								toggleComplete={this.toggleComplete}
+								deleteTodo={this.deleteTodo}
+							/>
+						</Col>
+					</Row>
 				</Container>
-					
-				</div>
-			
-
-				
+			</div>
 		);
 	}
 }
