@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Accordion, Card, Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 export class TodosList extends Component {
+
+
     componentDidMount = (props) => {
         console.log(this.props.todo);
     };
@@ -52,7 +54,12 @@ TodosList.protoTypes = {
     todo: PropTypes.object.isRequired,
     toggleComplete: PropTypes.func.isRequired,
     deleteTodo: PropTypes.func.isRequired
-}
 
+}
+TodosList.protoTypes = {
+	todo: PropTypes.object.isRequired,
+	toggleComplete: PropTypes.func.isRequired,
+	deleteTodo: PropTypes.func.isRequired,
+};
 
 export default TodosList;

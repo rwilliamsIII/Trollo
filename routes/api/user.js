@@ -52,6 +52,30 @@ module.exports = (app) => {
 			}
 		);
 
+	app.post(
+		'/api/trollos',
+		passport.authenticate('jwt', { session: false }),
+		(req, res) => {
+			console.log(req.user);
+			User.updateOne(
+				{ _id: req.user._id },
+				{
+					$push: {
+						todos: {
+							title: req.body.title,
+							description: req.body.description,
+							dueDate: req.body.dueDate,
+							inProgress: true,
+							completed: false,
+						},
+					},
+				}
+			)
+				.then((updated) => res.json({ msg: 'User successfully updated' }))
+				.catch((error) => res.json({ err: error }));
+		}
+	);
+
 	app.get(
 		'/api/user',
 		passport.authenticate('jwt', { session: false }),
