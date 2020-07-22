@@ -14,10 +14,13 @@ const UserSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	todos: {
-		type: Array,
-		default: []
-	}
-});
+	todos: [{
+		title: String,
+		description: String,
+		dueDate: String,
+		inProgress: Boolean,
+		completed: Boolean
+		}]
+	}, {_id: true});
 
 module.exports = mongoose.model('User', UserSchema);
