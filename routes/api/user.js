@@ -81,10 +81,10 @@ module.exports = (app) => {
 		passport.authenticate('jwt', {session: false}),
 		(req, res) => {
     		User.updateOne({_id: req.user._id, 'todos._id': req.params.todoId}, {$set: {
-    		'todos.$.title': req.body.title,
-			'todos.$.description': req.body.description,
-    		'todos.$.inProgress': req.body.inProgress,
-    		'todos.$.completed': req.body.completed }}).then(updated => res.json({msg: 'Todo successfully updated'})).catch(error => res.json({err: error}));
+    		// 'todos.$.title': req.body.title,
+			// 'todos.$.description': req.body.description,
+    		'todos.$.inProgress': false,
+    		'todos.$.completed': true }}).then(updated => res.json({msg: 'Todo successfully updated'})).catch(error => res.json({err: error}));
 	});
 
 	app.get(
