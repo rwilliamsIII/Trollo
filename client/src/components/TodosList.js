@@ -11,12 +11,12 @@ export class TodosList extends Component {
 
 
     render() {
-        const { title, description, dueDate } = this.props.todo;
+        const { title, description, dueDate, _id } = this.props.todo;
         return (
 
 
             <div className='container mt-2'>
-                <Accordion style={{ width: '400px' }}>
+                <Accordion style={{ width: '400px', marginLeft: '25%' }}>
                     <Card>
                         <Card.Header>
                             <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "black" }}>
@@ -30,15 +30,9 @@ export class TodosList extends Component {
                                 <div className='font-weight-bold'>
                                     {description}
                                     <br></br>
-						Due Date:{dueDate}
+						        Due Date:{dueDate}
                                 </div>
-                                <Form>
-                                    <Form.Check
-                                        type="switch"
-                                        id="custom-switch"
-                                        label="Completed."
-                                    />
-                                </Form>
+                                <Button className='ui medium olive button' onClick={this.props.toggleComplete.bind(this, _id)} style={{padding: '5px'}}><i class="check icon"></i></Button>
 
                             </Card.Body>
                         </Accordion.Collapse>
