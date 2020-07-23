@@ -18,7 +18,6 @@ class Biocard extends Component {
 		console.log(this.state);
 		Axios.get('/api/user')
 			.then((res) => {
-				const user = res.data;
 				this.setState({
 					user: res.data,
 				});

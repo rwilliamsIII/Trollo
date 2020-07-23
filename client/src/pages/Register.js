@@ -13,7 +13,6 @@ class Register extends Component {
 			email: '',
 			password: '',
 			name: '',
-			errors: {},
 		};
 	}
 
@@ -48,25 +47,15 @@ class Register extends Component {
 				console.log(newUser);
 				this.setState({
 					redirect: true,
-					// 	errors: {},
 				});
 
-				// if (res.data.token) {
-				// 	const { token } = res.data;
-				// 	// save token to local storage
-				// 	localStorage.setItem('trollo', token);
-				// 	setAuthToken(token);
-
-				// }
 				console.log(res.data);
 			})
 			.catch((err) => console.log(err.response.data));
-		// this.state({
-		// errors: err.response.data;
 	};
 
 	render() {
-		const { errors, redirect } = this.state;
+		const { redirect } = this.state;
 
 		if (redirect) {
 			return <Redirect to='/' />;

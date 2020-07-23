@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Accordion, Card, Button } from 'react-bootstrap';
-import Form from 'react-bootstrap/Form';
+
 export class TodosList extends Component {
 	getStyle = () => {
 		return {
@@ -9,15 +9,13 @@ export class TodosList extends Component {
 		};
 	};
 
-	componentDidMount = (props) => {
-		console.log(this.props.todo);
-	};
+	componentDidMount = (props) => {};
 
 	render() {
 		const { title, description, dueDate, _id } = this.props.todo;
 		return (
 			<div className='container mt-2'>
-				<Accordion style={{ width: '660px', marginLeft: '37%' }}>
+				<Accordion style={{ maxWidth: '660px', marginLeft: '37%' }}>
 					<Card>
 						<Card.Header>
 							<Accordion.Toggle
@@ -41,7 +39,7 @@ export class TodosList extends Component {
 									onClick={this.props.toggleComplete.bind(this, _id)}
 									style={{ padding: '5px' }}
 								>
-									<i class='check icon'></i>
+									<i className='check icon'></i>
 								</Button>
 							</Card.Body>
 						</Accordion.Collapse>

@@ -56,7 +56,6 @@ module.exports = (app) => {
 		'/api/trollos',
 		passport.authenticate('jwt', { session: false }),
 		(req, res) => {
-			console.log(req.user);
 			User.updateOne(
 				{ _id: req.user._id },
 				{
@@ -77,21 +76,29 @@ module.exports = (app) => {
 	);
 
 	app.put(
-		'/api/trollos/:todoId', 
-		passport.authenticate('jwt', {session: false}),
+		'/api/trollos/:todoId',
+		passport.authenticate('jwt', { session: false }),
 		(req, res) => {
-    		User.updateOne({_id: req.user._id, 'todos._id': req.params.todoId}, {$set: {
-    		// 'todos.$.title': req.body.title,
-			// 'todos.$.description': req.body.description,
-    		'todos.$.inProgress': false,
-    		'todos.$.completed': true }}).then(updated => res.json({msg: 'Todo successfully updated'})).catch(error => res.json({err: error}));
-	});
+			User.updateOne(
+				{ _id: req.user._id, 'todos._id': req.params.todoId },
+				{
+					$set: {
+						// 'todos.$.title': req.body.title,
+						// 'todos.$.description': req.body.description,
+						'todos.$.inProgress': false,
+						'todos.$.completed': true,
+					},
+				}
+			)
+				.then((updated) => res.json({ msg: 'Todo successfully updated' }))
+				.catch((error) => res.json({ err: error }));
+		}
+	);
 
 	app.get(
 		'/api/user',
 		passport.authenticate('jwt', { session: false }),
 		(req, res) => {
-			console.log(req.user);
 			User.findOne({ _id: req.user._id })
 				.then((user) => {
 					if (user) {

@@ -6,13 +6,6 @@ import setAuthToken from '../utils/setAuthToken';
 import { ReactComponent as Logo } from '../img/trollo-logo-01.svg';
 import { Link } from 'react-router-dom';
 
-const styles = {
-	errors: {
-		color: 'orange',
-		fontSize: '1rem',
-		margin: 0,
-	},
-};
 class Login extends Component {
 	constructor() {
 		super();
@@ -72,7 +65,7 @@ class Login extends Component {
 	};
 
 	render() {
-		const { errors, redirect } = this.state;
+		const { redirect } = this.state;
 
 		if (redirect) {
 			return <Redirect to='/dashboard' />;
@@ -101,9 +94,6 @@ class Login extends Component {
 											onChange={this.onChange}
 											g
 										/>
-										{errors.user && (
-											<div styles={styles.errors}>{errors.user}</div>
-										)}
 									</div>
 								</div>
 								<div className='field'>
@@ -116,9 +106,6 @@ class Login extends Component {
 											value={this.state.password}
 											onChange={this.onChange}
 										/>
-										{errors.password && (
-											<div styles={styles.errors}>{errors.password}</div>
-										)}
 									</div>
 								</div>
 								<input type='submit' className='ui fluid large olive button' />
