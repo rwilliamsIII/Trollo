@@ -66,7 +66,7 @@ class Login extends Component {
 			})
 			.catch((errors) => {
 				this.setState({
-					errors: errors.response.data,
+					email: errors.response.data,
 				});
 			});
 	};

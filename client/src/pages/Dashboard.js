@@ -40,7 +40,14 @@ class Dashboard extends Component {
 	};
 
 	toggleComplete = (_id) => {
-		console.log(_id)
+		this.setState({
+			todos: this.state.todos.map((todo) => {
+				if (todo._id === _id) {
+					todo.completed = !todo.completed;
+				}
+				return todo;
+			}),
+		});
 	};
 
 	render() {
