@@ -2,17 +2,25 @@ import React, { Component } from 'react';
 import TodosList from './TodosList.js';
 import PropTypes from 'prop-types';
 
-class Todos extends Component {
-	render() {
-		return this.props.todos.map((todo) => (
-			<TodosList
-				key={todo._id}
-				todo={todo}
-				toggleComplete={this.props.toggleComplete}
-			/>
-		));
+const Todos = (props) => {
+	let content;
+
+	if (props.todos.length === 0) {
+		content = 'Your todos will display here.';
+	} else {
+		content = props.todos.map((todo) => {
+			return (
+				<TodosList
+					key={todo._id}
+					todo={todo}
+					toggleComplete={props.toggleComplete}
+				/>
+			);
+		});
 	}
-}
+
+	return <div>{content}</div>;
+};
 
 Todos.propTypes = {
 	todos: PropTypes.array.isRequired,
