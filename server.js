@@ -27,15 +27,15 @@ mongoose.connect(
 if (process.env.NODE_ENV === 'production') {
 	// Set static folder
 	app.use(express.static('client/build'));
-	app.get('*', (req, res) => {
-		res.sendFile(path.join(__dirname, './client/build/index.html'));
-	});
+	
 }
 // Define Routes
 
 require('./routes/api/user')(app);
 //require('./routes/api-routes')(app);
-
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, './client/build/index.html'));
+});
 app.listen(PORT, function () {
 	console.log(
 		'==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.',
