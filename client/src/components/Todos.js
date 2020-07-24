@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Todos = (props) => {
 	let content;
 
-	if (props.todos.join().trim() === '') {
+	if (props.todos.length === 0) {
 		content = 'Your todos will display here.';
 	} else {
 		content = props.todos.map((todo) => {
