@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import authenticate from '../utils/Authenticate';
-import { ReactComponent as Logo } from '../img/trollo-logo-01.svg';
+import { ReactComponent as Logo } from '../img/trollo-logo-wht.svg';
 import { Link } from 'react-router-dom';
 
 class Register extends Component {

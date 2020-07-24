@@ -32,7 +32,8 @@
 		"start": "node server",
 		"client": "cd client && npm start",
 		"dev": "concurrently \"npm run server\" \"npm run client\"",
-		"heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
+		"heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
+		"seed2": "node seeders/userSeed.js"
 	},
 	"repository": {
 		"type": "git",
