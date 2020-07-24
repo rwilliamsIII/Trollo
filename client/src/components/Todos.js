@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TodosList from './TodosList.js';
 import PropTypes from 'prop-types';
 
