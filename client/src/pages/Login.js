@@ -14,7 +14,6 @@ class Login extends Component {
 			email: '',
 			password: '',
 			name: '',
-			errors: {},
 		};
 	}
 
@@ -92,7 +91,6 @@ class Login extends Component {
 											placeholder='Email address'
 											value={this.state.email}
 											onChange={this.onChange}
-											g
 										/>
 									</div>
 								</div>
@@ -111,7 +109,7 @@ class Login extends Component {
 								<input type='submit' className='ui fluid large olive button' />
 							</div>
 						</form>
-						<div class='ui olive message'>
+						<div className='ui olive message'>
 							<Link to='/register'>Not a user, sign up!</Link>
 						</div>
 					</div>

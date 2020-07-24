@@ -15,13 +15,12 @@ class Biocard extends Component {
 		if (token) {
 			setAuthToken(token);
 		}
-		console.log(this.state);
+
 		Axios.get('/api/user')
 			.then((res) => {
 				this.setState({
 					user: res.data,
 				});
-				console.log(this.state);
 			})
 			.catch((err) => console.log(err));
 	}
