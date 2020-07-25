@@ -1,7 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-<!-- Insert image of APP below.
-<img src="public\assets\images\noemonsivaisprofilepic.png" width="100"> -->
+<img src="./client/src/img/trolloMainPage.png" width="300">
 
 # Trollo App 
 This app will allow users manage working in a group remotely more easily.  A member of the team will be able to assign tasks to themselves or other members and label each task as "to-do," "in progress," and "completed."
@@ -10,17 +9,14 @@ This app will allow users manage working in a group remotely more easily.  A mem
 @rwilliamsIII @kristincenters @iean-hennig @nmonsivais
 
 # Technology
-HTML, ES6, Node.JS, Github, Heroku, React
+HTML, CSS, ES6, Node.JS, Github, Heroku, ReactJS, Express, React-Bootstrap/Semantic UI, React-Grid-System, Axios, MongoDB/Mongoose, Passport/Bcrypt/JWT
 
 # Heroku Link
-<!-- [Heroku Live App](https://intense-headland-07866.herokuapp.com/) -->
-
-# Usage Instructions
-To use this app, you can...
+[Heroku Live App](https://whispering-waters-86023.herokuapp.com/dashboard)
 
 # Application Demo
 
-<!-- This space reserved for gif of working app.  <img src="Assets\gifs\teamprofilegendemofinal.gif"> -->
+<img src="./client/src/img/trolloGif.gif">
 
 # Contact
 
