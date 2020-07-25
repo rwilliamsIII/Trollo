@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-// import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Todos from '../components/Todos';
-// import JumbotronTitle from '../components/JumbotronTitle';
 import Biocard from '../components/Biocard';
-// import AddTodo from '../components/AddTodo';
 import { Container, Row, Col } from 'react-grid-system';
 
 class Dashboard extends Component {

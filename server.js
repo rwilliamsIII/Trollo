@@ -4,7 +4,6 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 5000;
-// const db = require('./models');
 const mongoose = require('mongoose');
 
 // Init Middleware
@@ -32,7 +31,6 @@ if (process.env.NODE_ENV === 'production') {
 // Define Routes
 
 require('./routes/api/user')(app);
-//require('./routes/api-routes')(app);
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
