@@ -4,7 +4,6 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 5000;
-// const db = require('./models');
 const mongoose = require('mongoose');
 
 // Init Middleware
@@ -27,15 +26,14 @@ mongoose.connect(
 if (process.env.NODE_ENV === 'production') {
 	// Set static folder
 	app.use(express.static('client/build'));
-	app.get('*', (req, res) => {
-		res.sendFile(path.join(__dirname, './client/build/index.html'));
-	});
+	
 }
 // Define Routes
 
 require('./routes/api/user')(app);
-//require('./routes/api-routes')(app);
-
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, './client/build/index.html'));
+});
 app.listen(PORT, function () {
 	console.log(
 		'==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.',
